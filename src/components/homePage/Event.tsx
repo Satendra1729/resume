@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Grid, Paper, styled, Theme, Typography } from "@mui/material";
-import Location from "@mui/icons-material/LocationOn";
+import { LocationOn, Work } from "@mui/icons-material";
 
 import Divider from "@mui/material/Divider";
 
@@ -23,13 +23,15 @@ const Chip = styled("span")(({ theme }: { theme: Theme }) => ({
   borderRadius: "8px",
   fontSize: "8px",
   color: "white",
+  cursor: "pointer"
 }));
 
 interface EventProps {
   companyName: string;
-  projects: { [key: string]: string };
+  projects: { projectName: string; skillSets: string[],duration : string }[];
   location: string;
   direction: "left" | "right";
+  designation: string;
 }
 
 export const Event = (props: EventProps) => {
@@ -51,123 +53,78 @@ export const Event = (props: EventProps) => {
                   margin: "-5px 0 10px 0",
                 }}
               >
-                <Location style={{ width: "16px", marginRight: "5px" }} />
+                <LocationOn style={{ width: "16px", marginRight: "5px" }} />
                 <Typography variant="body2">{props.location}</Typography>
               </Grid>
+              <Grid
+                item
+                style={{
+                  display: "flex",
+                  justifyItems: "center",
+                  alignItems: "center",
+                  margin: "-10px 0 10px 0",
+                }}
+              >
+                <Work style={{ width: "16px", marginRight: "5px" }} />
+                <Typography variant="body2">{props.designation}</Typography>
+              </Grid>
 
-              <Grid
-                item
-                style={{
-                  display: "flex",
-                  justifyItems: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid
-                  container
-                  justifyContent={"space-between"}
-                  alignItems="center"
-                >
-                  <Grid item>
-                    <Typography variant="body1" style={{ lineHeight: "20px" }}>
-                      {"Lons PQ API Integration"}
-                    </Typography>{" "}
+              <Divider style={{ marginTop: "10px" }}>
+                <Typography variant="body1">{"Projects"}</Typography>
+              </Divider>
+
+              {props.projects.map(({ projectName, skillSets,duration }) => (
+                <>
+                  <Grid
+                    item
+                    style={{
+                      display: "flex",
+                      justifyItems: "center",
+                      alignItems: "center",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <Grid
+                      container
+                      justifyContent={"space-between"}
+                      alignItems="center"
+                    >
+                      <Grid item>
+                        <Typography
+                          variant="body1"
+                          style={{ lineHeight: "20px" }}
+                        >
+                          {projectName}
+                        </Typography>{" "}
+                      </Grid>
+                      <Grid item>
+                        <Typography
+                          variant="body2"
+                          style={{ lineHeight: "20px" }}
+                        >
+                          {duration}
+                        </Typography>
+                      </Grid>
+                    </Grid>
                   </Grid>
-                  <Grid item>
-                    <Typography variant="body2" style={{ lineHeight: "20px" }}>
-                      {"December 2018"}
-                    </Typography>
+                  <Grid
+                    item
+                    style={{
+                      display: "flex",
+                      justifyItems: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Grid container spacing={1}>
+                      {skillSets.map((skill) => (
+                        <Grid item>
+                          <Chip  onClick={()=>alert(skill)}>{skill}</Chip>
+                        </Grid>
+                      ))}
+                    </Grid>
                   </Grid>
-                </Grid>
-              </Grid>
-              <Grid
-                item
-                style={{
-                  display: "flex",
-                  justifyItems: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid container spacing={1}>
-                  <Grid item>
-                    <Chip>GIT</Chip>
-                  </Grid>
-                  <Grid item>
-                    <Chip>C#</Chip>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Divider style={{ marginTop: "10px" }}></Divider>
-              <Grid
-                item
-                style={{
-                  display: "flex",
-                  justifyItems: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid
-                  container
-                  justifyContent={"space-between"}
-                  alignItems="center"
-                  style={{ marginTop: "10px" }}
-                >
-                  <Grid item>
-                    <Typography variant="body1" style={{ lineHeight: "20px" }}>
-                      {"Dcoument Miner"}
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="body2" style={{ lineHeight: "20px" }}>
-                      {"December 2018"}
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid
-                item
-                style={{
-                  display: "flex",
-                  justifyItems: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid container spacing={1}>
-                  <Grid item>
-                    <Chip>GIT</Chip>
-                  </Grid>
-                  <Grid item>
-                    <Chip>C#</Chip>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Divider style={{ marginTop: "10px" }}></Divider>
-              <Grid
-                item
-                style={{
-                  display: "flex",
-                  justifyItems: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Grid
-                  container
-                  justifyContent={"space-between"}
-                  alignItems="center"
-                  style={{ marginTop: "10px" }}
-                >
-                  <Grid item>
-                    <Typography variant="body1" style={{ lineHeight: "20px" }}>
-                      {"Voting Meter (Covid-19 Helping App)"}
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="body2" style={{ lineHeight: "20px" }}>
-                      {"December 2018"}
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
+                </>
+              ))}
             </Grid>
           </Item>
         ) : (
@@ -186,10 +143,95 @@ export const Event = (props: EventProps) => {
       </Grid>
       <Grid item xs={5}>
         {props.direction == "right" ? (
-          <Item>
-            <h3> {props.companyName}</h3>
-            <h3> {props.location} </h3>
-          </Item>
+           <Item>
+           <Grid container direction={"column"}>
+             <Grid item>
+               <Typography variant="h6">{props.companyName}</Typography>
+             </Grid>
+             <Grid
+               item
+               style={{
+                 display: "flex",
+                 justifyItems: "center",
+                 alignItems: "center",
+                 margin: "-5px 0 10px 0",
+               }}
+             >
+               <LocationOn style={{ width: "16px", marginRight: "5px" }} />
+               <Typography variant="body2">{props.location}</Typography>
+             </Grid>
+             <Grid
+               item
+               style={{
+                 display: "flex",
+                 justifyItems: "center",
+                 alignItems: "center",
+                 margin: "-10px 0 10px 0",
+               }}
+             >
+               <Work style={{ width: "16px", marginRight: "5px" }} />
+               <Typography variant="body2">{props.designation}</Typography>
+             </Grid>
+
+             <Divider style={{ marginTop: "10px" }}>
+               <Typography variant="body1">{"Projects"}</Typography>
+             </Divider>
+
+             {props.projects.map(({ projectName, skillSets,duration }) => (
+               <>
+                 <Grid
+                   item
+                   style={{
+                     display: "flex",
+                     justifyItems: "center",
+                     alignItems: "center",
+                     marginTop: "10px",
+                   }}
+                 >
+                   <Grid
+                     container
+                     justifyContent={"space-between"}
+                     alignItems="center"
+                   >
+                     <Grid item>
+                       <Typography
+                         variant="body1"
+                         style={{ lineHeight: "20px" }}
+                       >
+                         {projectName}
+                       </Typography>{" "}
+                     </Grid>
+                     <Grid item>
+                       <Typography
+                         variant="body2"
+                         style={{ lineHeight: "20px" }}
+                       >
+                         {duration}
+                       </Typography>
+                     </Grid>
+                   </Grid>
+                 </Grid>
+                 <Grid
+                   item
+                   style={{
+                     display: "flex",
+                     justifyItems: "center",
+                     alignItems: "center",
+                   }}
+                 >
+                   <Grid container spacing={1}>
+                     {skillSets.map((skill) => (
+                       <Grid item>
+                         <Chip>{skill}</Chip>
+                       </Grid>
+                     ))}
+                   </Grid>
+                 </Grid>
+             <Divider style={{ marginTop: "10px" }}></Divider>
+               </>
+             ))}
+           </Grid>
+         </Item>
         ) : (
           ""
         )}
