@@ -1,19 +1,20 @@
 import * as React from "react";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import PrimarySearchAppBar from "../appbar/appbar";
 import { HomePage } from "../homePage/HomePage";
-
 
 export const Layout = () => {
   return (
     <>
       <PrimarySearchAppBar></PrimarySearchAppBar>
-      <Grid
-        container
-        style={{ display: "flex", width: "100%", justifyContent: "center",marginTop: "48px"}}
-      >
-        <HomePage></HomePage>
-      </Grid>
+      <Box sx={{ mt : { sm : "48px" ,xs : "90px"}}}>
+        <Grid
+          container
+          style={{ display: "flex", width: "100%", justifyContent: "center" }}
+        >
+          <HomePage></HomePage>
+        </Grid>
+      </Box>
     </>
   );
 };

@@ -111,13 +111,20 @@ const BasePaper =  styled(Paper)(({ theme } : { theme: Theme }) => ({
   }
 }));
 
+const SideDivs = styled("div")(({theme}: {theme : Theme}) =>({
+  width : "0px",
+  [theme.breakpoints.up("md")] : {
+    width : "300px"
+  }
+}))
 
 export default function Intro() {
   return (
     <>
       <BasePaper  >
-        <Grid spacing={20} container justifyContent="space-between">
-          <Grid item sm={2} sx={{ sm : { width :"100%",display:"flex",justifyContent: "center"}}}>
+        <Grid spacing={5} container justifyContent="space-between">
+          <Grid item md={4} sm={6} xs={12} sx={{ width :"100%",display:"flex",justifyContent: "center"}}>
+           <SideDivs/>
             <Avatar
               src={saty}
               sx={{ bgcolor: grey[500], height: "200px", width: "200px" }}
@@ -126,8 +133,9 @@ export default function Intro() {
               SKK
             </Avatar>
           </Grid>
-          <Grid item sm={8}>
-            <Grid container direction={"column"} style={{marginTop: "20px"}}>
+          <Grid item md={7} sm={6}>
+            <SideDivs/>
+            <Grid container direction={"column"} sx={{ width :"100%",display:"flex",justifyContent: "center",margin: "20px"}}>
               <Grid item>
                 <Name />
               </Grid>

@@ -59,7 +59,7 @@ export const Events = [
         eventSrNumber : 1
     },
     {
-        companyName: "Gesttalt Technologies Pvt Ltd",
+        companyName: "Gestalt Technologies Pvt Ltd",
         projects: [
           {
             projectName: "Unified Electricity Bill Portal",

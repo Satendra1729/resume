@@ -24,11 +24,11 @@ const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
 
 export const HomePage = () => {
   return (
-    <Box maxWidth={"1000px"} style={{ padding: "20px" }}>
-      <Grid item xs={12}>
+    <Box maxWidth={"1000px"} style ={{padding : "20px"}}>
+      <Grid item xs ={12} >
         <Intro></Intro>
       </Grid>
-      <Grid item xs={12} style={{ marginTop: "30px" }}>
+      <Grid item xs={12} marginTop ="20px">
         <TimeLineDirection eventTime="&#9650;"></TimeLineDirection>
         {Events.map((event) => (
           <>
