@@ -7,6 +7,7 @@ import { Event } from "./Event";
 import { TimeDot } from "./TimeDot";
 import { TimeLineDirection } from "./TimeLineDirection";
 import { Events } from "../../db/Events";
+import { Eventxs } from "./Eventxs";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -16,24 +17,49 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
-  border: `2px solid ${theme.palette.primary.main}`,
-  height: "100%",
-  borderRadius: "5px",
-}));
-
 export const HomePage = () => {
   return (
-    <Box maxWidth={"1000px"} style ={{padding : "20px"}}>
-      <Grid item xs ={12} >
+    <Box maxWidth={"1000px"} style={{ padding: "20px" }}>
+      <Grid item xs={12}>
         <Intro></Intro>
       </Grid>
-      <Grid item xs={12} marginTop ="20px">
+      <Grid item xs={12} sx = {{ mt :"20px"}}>
         <TimeLineDirection eventTime="&#9650;"></TimeLineDirection>
         {Events.map((event) => (
           <>
-            <Event {...event}></Event>
-            <TimeDot eventTime={event.startTime}></TimeDot>
+            <Box sx={{ display: { xs: "block", md: "none" } }}>
+              <Grid container>
+                <Grid item xs={12}>
+                  <Eventxs {...event}></Eventxs>
+                </Grid><Grid item width="100%" xs={12} >
+                <Grid
+                  container
+                  spacing={0}
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <TimeDot eventTime={event.startTime}></TimeDot>
+                </Grid>
+              </Grid>
+              </Grid>
+            </Box>
+            <Box sx={{ display: { xs: "none", md: "block" } }}>
+              <Grid item xs={12}>
+                <Event {...event}></Event>
+              </Grid>
+              <Grid item width="100%" xs={12} sx={{ p: "20px" }}>
+                <Grid
+                  container
+                  spacing={0}
+                  direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <TimeDot eventTime={event.startTime}></TimeDot>
+                </Grid>
+              </Grid>
+            </Box>
           </>
         ))}
       </Grid>

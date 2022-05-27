@@ -11,6 +11,7 @@ const Circle = styled("div")(({ theme }: { theme: Theme }) => ({
   padding: "2px",
   lineHeight: "14px",
   color: "white",
+  width: 'fit-content'
 }));
 
 interface TimeDotProps {
@@ -19,19 +20,6 @@ interface TimeDotProps {
 
 export const TimeDot = (props: TimeDotProps) => {
   return (
-    <Grid container spacing={2} justifyContent="center">
-      <Grid item xs={5}></Grid>
-      <Grid
-        item
-        xs={2}
-        justifyContent="center"
-        alignItems={"center"}
-        alignContent="center"
-        style={{ display: "flex" }}
-      >
         <Circle>{props.eventTime}</Circle>
-      </Grid>
-      <Grid item xs={5}></Grid>
-    </Grid>
   );
 };

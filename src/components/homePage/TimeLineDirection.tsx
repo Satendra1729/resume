@@ -14,7 +14,6 @@ interface TimeLineDirectionProps {
 export const TimeLineDirection = (props: TimeLineDirectionProps) => {
   return (
     <Grid container spacing={2} justifyContent="center">
-      <Grid item xs={5}></Grid>
       <Grid
         item
         xs={2}
@@ -22,10 +21,10 @@ export const TimeLineDirection = (props: TimeLineDirectionProps) => {
         alignItems={"center"}
         alignContent="center"
         style={{ display: "flex" }}
+        sx= {{ mb : {xs : "-5px",md : "20px"}}}
       >
         <Circle>{props.eventTime}</Circle>
       </Grid>
-      <Grid item xs={5}></Grid>
     </Grid>
   );
 };

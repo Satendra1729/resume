@@ -13,7 +13,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
   border: `2px solid ${theme.palette.primary.main}`,
-  height: "100%",
+  height: "115%",
   borderRadius: "5px",
 }));
 
@@ -37,7 +37,7 @@ interface EventProps {
 export const Event = (props: EventProps) => {
   return (
     <Grid container spacing={2} justifyContent="center">
-      <Grid item xs={5}>
+      <Grid item xs={5} sx={{display : {sm : "none",md: "block"}}}>
         {props.direction == "left" ? (
           <Item>
             <Grid container direction={"column"}>
@@ -133,7 +133,8 @@ export const Event = (props: EventProps) => {
       </Grid>
       <Grid
         item
-        xs={2}
+        sm={2}
+        xs = {2}
         justifyContent="center"
         alignItems={"center"}
         alignContent="center"
@@ -141,7 +142,7 @@ export const Event = (props: EventProps) => {
       >
         <VerticalDivider></VerticalDivider>
       </Grid>
-      <Grid item xs={5}>
+      <Grid item sm={5} xs={10}>
         {props.direction == "right" ? (
            <Item>
            <Grid container direction={"column"}>
