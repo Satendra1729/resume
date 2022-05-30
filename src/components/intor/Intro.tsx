@@ -100,31 +100,37 @@ const SubTitle = styled((props: any) => {
   marginTop: "5px",
 }));
 
-const BasePaper =  styled(Paper)(({ theme } : { theme: Theme }) => ({
+const BasePaper = styled(Paper)(({ theme }: { theme: Theme }) => ({
   fontSize: "30px",
 
-  [theme.breakpoints.up("sm")] : {
+  [theme.breakpoints.up("sm")]: {
     padding: "15px 25px",
- },
-  [theme.breakpoints.up("md")] : {
-     padding: "15px 50px",
-  }
+  },
+  [theme.breakpoints.up("md")]: {
+    padding: "15px 50px",
+  },
 }));
 
-const SideDivs = styled("div")(({theme}: {theme : Theme}) =>({
-  width : "0px",
-  [theme.breakpoints.up("md")] : {
-    width : "300px"
-  }
-}))
+const SideDivs = styled("div")(({ theme }: { theme: Theme }) => ({
+  width: "0px",
+  [theme.breakpoints.up("md")]: {
+    width: "300px",
+  },
+}));
 
 export default function Intro() {
   return (
     <>
-      <BasePaper  >
+      <BasePaper>
         <Grid spacing={5} container justifyContent="space-between">
-          <Grid item md={4} sm={6} xs={12} sx={{ width :"100%",display:"flex",justifyContent: "center"}}>
-           <SideDivs/>
+          <Grid
+            item
+            md={4}
+            sm={6}
+            xs={12}
+            sx={{ width: "100%", display: "flex", justifyContent: "center" }}
+          >
+            <SideDivs />
             <Avatar
               src={saty}
               sx={{ bgcolor: grey[500], height: "200px", width: "200px" }}
@@ -133,14 +139,48 @@ export default function Intro() {
               SKK
             </Avatar>
           </Grid>
-          <Grid item md={7} sm={6}>
-            <SideDivs/>
-            <Grid container direction={"column"} sx={{ width :"100%",display:"flex",justifyContent: "center",margin: "20px"}}>
+          <Grid item md={7} sm={6} xs={11}>
+            <SideDivs />
+            <Grid
+              container
+              direction={"column"}
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                margin: "20px",
+              }}
+            >
               <Grid item>
                 <Name />
               </Grid>
               <Grid item>
                 <SubTitle />
+              </Grid>
+              <Grid item>
+                <Grid
+                  container
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyItems: "center",
+                    fontSize: "16px",
+                    marginTop: "10px",
+                  }}
+                  spacing={1}
+                >
+                  {[
+                    "C#",
+                    "Python",
+                    "Docker",
+                    "Kubernets",
+                    "Multi-Threading",
+                    "JavaScript",
+                    "TypeScript",
+                  ].map((skill) => (
+                    <Grid item style={{color: "blue"}}>{skill}</Grid>
+                  ))}
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

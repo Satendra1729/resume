@@ -1,9 +1,10 @@
 export interface  Event {
+    id : string,
     companyName: string
     projects: 
       {
         projectName: string,
-        skillSets: string[],
+        skillSets:  {skill : string,color : string}[],
         duration: string,
       }[],
     direction: "left" | "right",

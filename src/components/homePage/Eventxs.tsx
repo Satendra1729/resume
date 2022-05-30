@@ -17,18 +17,25 @@ const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
   width: "0px",
 }));
 
-const Chip = styled("span")(({ theme }: { theme: Theme }) => ({
-  backgroundColor: theme.palette.secondary.main,
-  padding: "2px 3px",
-  borderRadius: "8px",
-  fontSize: "8px",
-  color: "white",
-  cursor: "pointer",
-}));
+const Chip = styled("span")(
+  ({ theme, color }: { theme: Theme; color?: string }) => ({
+    backgroundColor: color ? color: theme.palette.secondary.main,
+    padding: "2px 3px",
+    borderRadius: "8px",
+    fontSize: "8px",
+    color: "white",
+    cursor: "pointer",
+  })
+);
+
 
 interface EventProps {
   companyName: string;
-  projects: { projectName: string; skillSets: string[]; duration: string }[];
+  projects: {
+    projectName: string;
+    skillSets: { skill: string; color: string }[];
+    duration: string;
+  }[];
   location: string;
   direction: "left" | "right";
   designation: string;
@@ -127,9 +134,14 @@ export const Eventxs = (props: EventProps) => {
                   }}
                 >
                   <Grid container spacing={1}>
-                    {skillSets.map((skill) => (
+                    {skillSets.map((skillO) => (
                       <Grid item>
-                        <Chip onClick={() => alert(skill)}>{skill}</Chip>
+                        <Chip
+                          onClick={() => alert(skillO.skill)}
+                          color={skillO.color}
+                        >
+                          {skillO.skill}
+                        </Chip>
                       </Grid>
                     ))}
                   </Grid>
@@ -138,7 +150,8 @@ export const Eventxs = (props: EventProps) => {
             ))}
           </Grid>
         </Item>
-      </Grid><Grid item xs={12}>
+      </Grid>
+      <Grid item xs={12}>
         <Grid
           container
           spacing={0}
