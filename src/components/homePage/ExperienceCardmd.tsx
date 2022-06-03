@@ -87,7 +87,7 @@ export const Eventmd = (props: Experience) => {
                       </Grid>
                       <Grid item>
                         <Typography
-                          variant="body2"
+                          variant="caption"
                           style={{ lineHeight: "20px" }}
                         >
                           {duration}
@@ -114,6 +114,7 @@ export const Eventmd = (props: Experience) => {
                       ))}
                     </Grid>
                   </Grid>
+                  <Divider style={{ marginTop: "10px" }}></Divider>
                 </>
               ))}
             </Grid>

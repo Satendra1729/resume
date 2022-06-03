@@ -11,10 +11,9 @@ export const Experiences = [
           { skill: "C#", color: "expert" },
           { skill: "Dotnet Core", color: "expert" },
           { skill: "GIT", color: "expert" },
-          { skill: "React", color: "expert" },
           { skill: "AWS", color: "proficient" },
         ],
-        duration: "December 2019",
+        duration: "Jan 20 - Jun 20",
       },
       {
         projectName: "Dcoument Miner",
@@ -24,15 +23,7 @@ export const Experiences = [
           { skill: "SQLite", color: "expert" },
           { skill: "Docker", color: "proficient" },
         ],
-        duration: "December 2019",
-      },
-      {
-        projectName: "Voting Meter",
-        skillSets: [
-          { skill: "Python", color: "competent" },
-          { skill: "React", color: "proficient" },
-        ],
-        duration: "December 2019",
+        duration: "Feb 20 - Apr 20",
       },
       {
         projectName: "Safe Escrow",
@@ -41,7 +32,15 @@ export const Experiences = [
           { skill: "SQL", color: "proficient" },
           { skill: "AWS", color: "proficient" },
         ],
-        duration: "December 2019",
+        duration: "Jun 19 - Dec 19",
+      },
+      {
+        projectName: "Voting Meter",
+        skillSets: [
+          { skill: "Python", color: "competent" },
+          { skill: "React", color: "proficient" },
+        ],
+        duration: "May 19",
       },
       {
         projectName: "Title Port",
@@ -50,18 +49,18 @@ export const Experiences = [
           { skill: "SQL", color: "proficient" },
           { skill: "AWS", color: "proficient" },
         ],
-        duration: "December 2019",
-      }
+        duration: "Aug 18 - Mar 18",
+      },
     ],
     direction: "left" as "left" | "right",
-    location: "Bangalore",
+    location: "Bengaluru",
     designation: "Senior Software Engineer",
     startTime: "June 2018",
     eventSrNumber: 1,
   },
   {
     id: "PAOPC",
-    companyName: "Prozio Analytics Pvt Ltd (OPC)",
+    companyName: "Proziod Analytics Pvt Ltd (OPC)",
     projects: [
       {
         projectName: "Unified Electricity Bill Portal",
@@ -69,7 +68,7 @@ export const Experiences = [
           { skill: "C#", color: "competent" },
           { skill: "Dotnet Core", color: "competent" },
         ],
-        duration: "December 2019",
+        duration: "Jan 18 - Apr 18",
       },
       {
         projectName: "Bill Parser",
@@ -77,11 +76,11 @@ export const Experiences = [
           { skill: "C#", color: "competent" },
           { skill: "GIT", color: "expert" },
         ],
-        duration: "December 2019",
+        duration: "Nov 17 - Jun 18",
       },
     ],
     direction: "right" as "left" | "right",
-    location: "Bangalore",
+    location: "Bengaluru",
     designation: "Software Engineer",
     startTime: "Oct 2018",
     eventSrNumber: 1,
@@ -91,24 +90,54 @@ export const Experiences = [
     companyName: "CBL Data Science Pvt Ltd",
     projects: [
       {
-        projectName: "Unified Electricity Bill Portal",
+        projectName: "Company Finder",
         skillSets: [
           { skill: "C#", color: "competent" },
-          { skill: "GIT", color: "expert" },
+          { skill: "Windows Forms", color: "competent" },
+          { skill: "Python", color: "expert" },
         ],
-        duration: "December 2019",
+        duration: "Dec 16 - Feb 17",
       },
       {
-        projectName: "Bill Parser",
+        projectName: "Data Warehouse of Companies Data",
+        skillSets: [
+          { skill: "C#", color: "expert" },
+          { skill: "Python", color: "expert" },
+          { skill: "Azure", color: "competent" },
+        ],
+        duration: "Feb 17 - Sep 17",
+      },
+      {
+        projectName: "Pdf Minner",
         skillSets: [
           { skill: "C#", color: "competent" },
-          { skill: "GIT", color: "expert" },
         ],
-        duration: "December 2019",
+        duration: "Jun 17 - Aug 17",
+      },
+      {
+        projectName: "GST, EPFO, PAN Scraper",
+        skillSets: [
+          { skill: "Python", color: "expert" },
+        ],
+        duration: "Feb 17 - Oct 17",
+      },
+      {
+        projectName: "Companies Legal Scraper",
+        skillSets: [
+          { skill: "Python", color: "expert" },
+        ],
+        duration: "Feb 17 - Oct 17",
+      },
+      {
+        projectName: "Credit Ratings, TAN Scraper",
+        skillSets: [
+          { skill: "Python", color: "expert" },
+        ],
+        duration: "Feb 17 - Oct 17",
       },
     ],
     direction: "left" as "left" | "right",
-    location: "Bangalore",
+    location: "Bengaluru",
     designation: "Software Engineer",
     startTime: "Oct 2018",
     eventSrNumber: 1,
@@ -118,24 +147,24 @@ export const Experiences = [
     companyName: "Gestalt Technologies Pvt Ltd",
     projects: [
       {
-        projectName: "Unified Electricity Bill Portal",
+        projectName: "Oncology Patient Managment",
         skillSets: [
           { skill: "C#", color: "competent" },
-          { skill: "GIT", color: "expert" },
+          { skill: "Windows Forms", color: "expert" },
         ],
-        duration: "December 2019",
+        duration: "Aug 16 - Dec 16",
       },
       {
-        projectName: "Bill Parser",
+        projectName: "Online Patient Appointment portal",
         skillSets: [
           { skill: "C#", color: "competent" },
-          { skill: "GIT", color: "expert" },
+          { skill: "Windows Forms", color: "expert" },
         ],
-        duration: "December 2019",
+        duration: "Jan 16 - Mar 16",
       },
     ],
     direction: "right" as "left" | "right",
-    location: "Bangalore",
+    location: "Bengaluru",
     designation: "Software Engineer",
     startTime: "Oct 2018",
     eventSrNumber: 1,
