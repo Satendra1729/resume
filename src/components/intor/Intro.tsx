@@ -20,10 +20,17 @@ interface ExpandMoreProps extends IconButtonProps {
 const Name = styled((props: any) => {
   const { ...other } = props;
 
+  return <span {...other}>{Introduction.name}</span>;
+})(({ theme }) => ({
+  fontSize: "30px",
+}));
+
+const Experience = styled((props: any) => {
+  const { ...other } = props;
+
   return (
     <span {...other}>
-      {Introduction.name +
-        getExpirence(Introduction.workExpirenceStartDate, new Date())}
+      {getExpirence(Introduction.workExpirenceStartDate, new Date())}
     </span>
   );
 })(({ theme }) => ({
@@ -37,7 +44,11 @@ const SubTitle = styled((props: any) => {
       <div>
         <span>{Introduction.designation}</span>
       </div>
-      <Grid container alignItems={"center"} style={{ fontSize: "13px", marginTop: "10px" }}>
+      <Grid
+        container
+        alignItems={"center"}
+        style={{ fontSize: "13px", marginTop: "10px" }}
+      >
         <LocationCity style={{ fontSize: "20px" }} />{" "}
         <span style={{ marginLeft: "10px" }}>
           {Introduction.currentLocation}
@@ -124,7 +135,6 @@ export default function Intro() {
           <Grid
             item
             md={4}
-            sm={6}
             xs={12}
             sx={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
@@ -137,7 +147,7 @@ export default function Intro() {
               SKK
             </Avatar>
           </Grid>
-          <Grid item md={7} sm={6} xs={11}>
+          <Grid item md={7} xs={11}>
             <SideDivs />
             <Grid
               container
@@ -150,8 +160,16 @@ export default function Intro() {
               }}
             >
               <Grid item>
-                <Name />
+                <Grid container >
+                  <Grid item>
+                    <Name />
+                  </Grid>
+                  <Grid item>
+                    <Experience />
+                  </Grid>
+                </Grid>
               </Grid>
+              <Grid item></Grid>
               <Grid item>
                 <SubTitle />
               </Grid>
