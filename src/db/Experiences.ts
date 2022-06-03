@@ -1,6 +1,6 @@
-import { Event } from "../contracts/Event";
+import { Experience } from "../contracts/Experience";
 
-export const Events = [
+export const Experiences = [
   {
     id: "FAI",
     companyName: "First American Pvt Ltd",
@@ -8,24 +8,50 @@ export const Events = [
       {
         projectName: "LoansPQ",
         skillSets: [
-          { skill: "C#", color: "red" },
-          { skill: "Dotnet Core", color: "red" },
-          { skill: "GIT", color: "black" },
-          { skill: "AWS", color: "brown" },
-          { skill: "React", color: "blue" },
+          { skill: "C#", color: "expert" },
+          { skill: "Dotnet Core", color: "expert" },
+          { skill: "GIT", color: "expert" },
+          { skill: "React", color: "expert" },
+          { skill: "AWS", color: "proficient" },
         ],
         duration: "December 2019",
       },
       {
         projectName: "Dcoument Miner",
         skillSets: [
-          { skill: "Python", color: "red" },
-          { skill: "Cherrypy", color: "red" },
-          { skill: "SQLite", color: "black" },
-          { skill: "Docker", color: "brown" },
+          { skill: "Python", color: "competent" },
+          { skill: "Cherrypy", color: "competent" },
+          { skill: "SQLite", color: "expert" },
+          { skill: "Docker", color: "proficient" },
         ],
         duration: "December 2019",
       },
+      {
+        projectName: "Voting Meter",
+        skillSets: [
+          { skill: "Python", color: "competent" },
+          { skill: "React", color: "proficient" },
+        ],
+        duration: "December 2019",
+      },
+      {
+        projectName: "Safe Escrow",
+        skillSets: [
+          { skill: "C#", color: "expert" },
+          { skill: "SQL", color: "proficient" },
+          { skill: "AWS", color: "proficient" },
+        ],
+        duration: "December 2019",
+      },
+      {
+        projectName: "Title Port",
+        skillSets: [
+          { skill: "C#", color: "expert" },
+          { skill: "SQL", color: "proficient" },
+          { skill: "AWS", color: "proficient" },
+        ],
+        duration: "December 2019",
+      }
     ],
     direction: "left" as "left" | "right",
     location: "Bangalore",
@@ -40,16 +66,16 @@ export const Events = [
       {
         projectName: "Unified Electricity Bill Portal",
         skillSets: [
-          { skill: "C#", color: "red" },
-          { skill: "Dotnet Core", color: "red" },
+          { skill: "C#", color: "competent" },
+          { skill: "Dotnet Core", color: "competent" },
         ],
         duration: "December 2019",
       },
       {
         projectName: "Bill Parser",
         skillSets: [
-          { skill: "C#", color: "red" },
-          { skill: "GIT", color: "black" },
+          { skill: "C#", color: "competent" },
+          { skill: "GIT", color: "expert" },
         ],
         duration: "December 2019",
       },
@@ -67,16 +93,16 @@ export const Events = [
       {
         projectName: "Unified Electricity Bill Portal",
         skillSets: [
-          { skill: "C#", color: "red" },
-          { skill: "GIT", color: "black" },
+          { skill: "C#", color: "competent" },
+          { skill: "GIT", color: "expert" },
         ],
         duration: "December 2019",
       },
       {
         projectName: "Bill Parser",
         skillSets: [
-          { skill: "C#", color: "red" },
-          { skill: "GIT", color: "black" },
+          { skill: "C#", color: "competent" },
+          { skill: "GIT", color: "expert" },
         ],
         duration: "December 2019",
       },
@@ -94,16 +120,16 @@ export const Events = [
       {
         projectName: "Unified Electricity Bill Portal",
         skillSets: [
-          { skill: "C#", color: "red" },
-          { skill: "GIT", color: "black" },
+          { skill: "C#", color: "competent" },
+          { skill: "GIT", color: "expert" },
         ],
         duration: "December 2019",
       },
       {
         projectName: "Bill Parser",
         skillSets: [
-          { skill: "C#", color: "red" },
-          { skill: "GIT", color: "black" },
+          { skill: "C#", color: "competent" },
+          { skill: "GIT", color: "expert" },
         ],
         duration: "December 2019",
       },
@@ -121,18 +147,18 @@ export const Events = [
       {
         projectName: "Eyes Controlled Wheel Chair",
         skillSets: [
-          { skill: "Matlab", color: "red" },
-          { skill: "Image Processing", color: "black" },
-          { skill: "Latex", color: "black" },
+          { skill: "Matlab", color: "competent" },
+          { skill: "Image Processing", color: "expert" },
+          { skill: "Latex", color: "expert" },
         ],
         duration: "December 2015",
       },
       {
         projectName: "Biodegradable Methods of Polymers",
         skillSets: [
-          { skill: "Journalism", color: "red" },
-          { skill: "Image Processing", color: "black" },
-          { skill: "Latex", color: "black" },
+          { skill: "Journalism", color: "competent" },
+          { skill: "Image Processing", color: "expert" },
+          { skill: "Latex", color: "expert" },
         ],
         duration: "December 2019",
       },
@@ -143,4 +169,4 @@ export const Events = [
     startTime: "July 2014",
     eventSrNumber: 1,
   },
-] as Event[];
+] as Experience[];

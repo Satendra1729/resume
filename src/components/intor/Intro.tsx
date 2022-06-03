@@ -1,33 +1,31 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import { IconButtonProps } from "@mui/material/IconButton";
 import { grey } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import saty from "../../assets/img/saty.jpg";
 import Email from "@mui/icons-material/Email";
 import GitHub from "@mui/icons-material/GitHub";
+import LocationCity from "@mui/icons-material/LocationCity";
 import Download from "@mui/icons-material/Download";
 import Grid from "@mui/material/Grid";
 import { Paper, Theme } from "@mui/material";
-
+import { Chip } from "../lib/Chip";
+import { Introduction } from "../../db/Introduction";
+import { getExpirence } from "../../utils/getExpirence";
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
 
 const Name = styled((props: any) => {
   const { ...other } = props;
-  return <span {...other}>Satendra Kumar Kushwaha</span>;
+
+  return (
+    <span {...other}>
+      {Introduction.name +
+        getExpirence(Introduction.workExpirenceStartDate, new Date())}
+    </span>
+  );
 })(({ theme }) => ({
   fontSize: "30px",
 }));
@@ -37,8 +35,14 @@ const SubTitle = styled((props: any) => {
   return (
     <div {...other}>
       <div>
-        <span>Principle Software Engineer</span>
+        <span>{Introduction.designation}</span>
       </div>
+      <Grid container alignItems={"center"} style={{ fontSize: "13px", marginTop: "10px" }}>
+        <LocationCity style={{ fontSize: "20px" }} />{" "}
+        <span style={{ marginLeft: "10px" }}>
+          {Introduction.currentLocation}
+        </span>
+      </Grid>
       <Grid
         container
         style={{ display: "flex", fontSize: "16px", marginTop: "20px" }}
@@ -55,9 +59,9 @@ const SubTitle = styled((props: any) => {
           <Email />{" "}
           <a
             style={{ color: grey[900] }}
-            href={"mailto:satendra1729@gmail.com"}
+            href={"mailto:" + Introduction.emailId}
           >
-            satendra1729@gmail.com
+            {Introduction.emailId}
           </a>
         </Grid>
         <Grid
@@ -69,10 +73,7 @@ const SubTitle = styled((props: any) => {
           }}
         >
           <GitHub />{" "}
-          <a
-            style={{ color: grey[900] }}
-            href={"https://github.com/Satendra1729"}
-          >
+          <a style={{ color: grey[900] }} href={Introduction.github}>
             Git Hub
           </a>
         </Grid>
@@ -85,10 +86,7 @@ const SubTitle = styled((props: any) => {
           }}
         >
           <Download />{" "}
-          <a
-            style={{ color: grey[900] }}
-            href={"https://github.com/Satendra1729"}
-          >
+          <a style={{ color: grey[900] }} href={Introduction.resumeLink}>
             Resume
           </a>
         </Grid>
@@ -167,18 +165,12 @@ export default function Intro() {
                     fontSize: "16px",
                     marginTop: "10px",
                   }}
-                  spacing={1}
+                  spacing={1.2}
                 >
-                  {[
-                    "C#",
-                    "Python",
-                    "Docker",
-                    "Kubernets",
-                    "Multi-Threading",
-                    "JavaScript",
-                    "TypeScript",
-                  ].map((skill) => (
-                    <Grid item style={{color: "blue"}}>{skill}</Grid>
+                  {Introduction.skillSets.map((skillO) => (
+                    <Grid item style={{ color: "blue" }}>
+                      <Chip chipText={skillO.skill} color={skillO.color} />
+                    </Grid>
                   ))}
                 </Grid>
               </Grid>

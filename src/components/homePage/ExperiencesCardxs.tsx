@@ -3,6 +3,9 @@ import { Grid, Paper, styled, Theme, Typography } from "@mui/material";
 import { LocationOn, Work } from "@mui/icons-material";
 
 import Divider from "@mui/material/Divider";
+import { Chip } from "../lib/Chip";
+import { CompanyName } from "../lib/CompanyName";
+import { Experience } from "../../contracts/Experience";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -12,36 +15,12 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
-  border: `2px solid ${theme.palette.primary.main}`,
+  border: `2px solid ${theme.palette.secondary.light}`,
   height: "20px",
   width: "0px",
 }));
 
-const Chip = styled("span")(
-  ({ theme, color }: { theme: Theme; color?: string }) => ({
-    backgroundColor: color ? color: theme.palette.secondary.main,
-    padding: "2px 3px",
-    borderRadius: "8px",
-    fontSize: "8px",
-    color: "white",
-    cursor: "pointer",
-  })
-);
-
-
-interface EventProps {
-  companyName: string;
-  projects: {
-    projectName: string;
-    skillSets: { skill: string; color: string }[];
-    duration: string;
-  }[];
-  location: string;
-  direction: "left" | "right";
-  designation: string;
-}
-
-export const Eventxs = (props: EventProps) => {
+export const Eventxs = (props: Experience) => {
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12}>
@@ -60,7 +39,7 @@ export const Eventxs = (props: EventProps) => {
         <Item>
           <Grid container direction={"column"}>
             <Grid item>
-              <Typography variant="h6">{props.companyName}</Typography>
+              <CompanyName companyName={props.companyName} />
             </Grid>
             <Grid
               item
@@ -137,11 +116,10 @@ export const Eventxs = (props: EventProps) => {
                     {skillSets.map((skillO) => (
                       <Grid item>
                         <Chip
-                          onClick={() => alert(skillO.skill)}
+                          chipText={skillO.skill}
+                          fontSize="10px"
                           color={skillO.color}
-                        >
-                          {skillO.skill}
-                        </Chip>
+                        />
                       </Grid>
                     ))}
                   </Grid>
