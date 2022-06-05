@@ -82,7 +82,7 @@ export const Experiences = [
     direction: "right" as "left" | "right",
     location: "Bengaluru",
     designation: "Software Engineer",
-    startTime: "Oct 2018",
+    startTime: "Nov 2017",
     eventSrNumber: 1,
   },
   {
@@ -139,7 +139,7 @@ export const Experiences = [
     direction: "left" as "left" | "right",
     location: "Bengaluru",
     designation: "Software Engineer",
-    startTime: "Oct 2018",
+    startTime: "Oct 2016",
     eventSrNumber: 1,
   },
   {
@@ -166,7 +166,7 @@ export const Experiences = [
     direction: "right" as "left" | "right",
     location: "Bengaluru",
     designation: "Software Engineer",
-    startTime: "Oct 2018",
+    startTime: "Feb 2015",
     eventSrNumber: 1,
   },
   {
@@ -195,7 +195,7 @@ export const Experiences = [
     direction: "left" as "left" | "right",
     location: "Allahabad",
     designation: "M. Tech (Bio Medical)",
-    startTime: "July 2014",
+    startTime: "July 2012",
     eventSrNumber: 1,
   },
 ] as Experience[];

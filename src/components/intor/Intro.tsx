@@ -13,6 +13,7 @@ import { Paper, Theme } from "@mui/material";
 import { Chip } from "../lib/Chip";
 import { Introduction } from "../../db/Introduction";
 import { getExpirence } from "../../utils/getExpirence";
+import resume from '../../assets/pdf/resume.pdf'
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -97,7 +98,7 @@ const SubTitle = styled((props: any) => {
           }}
         >
           <Download />{" "}
-          <a style={{ color: grey[900] }} href={Introduction.resumeLink}>
+          <a download="resume.pdf" style={{ color: grey[900] }} href={resume} target="_blank">
             Resume
           </a>
         </Grid>
