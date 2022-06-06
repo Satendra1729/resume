@@ -7,7 +7,7 @@ import { Eventmd } from "./ExperienceCardmd";
 import { TimeDot } from "./TimeDot";
 import { TimeLineDirection } from "./TimeLineDirection";
 import { Experiences } from "../../db/Experiences";
-import { Eventxs } from "./ExperiencesCardxs";
+import { Eventxs } from "./ExperienceCardxs";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",

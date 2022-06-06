@@ -124,6 +124,7 @@ export const Eventxs = (props: Experience) => {
                     ))}
                   </Grid>
                 </Grid>
+                <Divider style={{ marginTop: "10px" }}></Divider>
               </>
             ))}
           </Grid>

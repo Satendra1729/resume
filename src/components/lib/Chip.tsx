@@ -1,18 +1,30 @@
 import * as React from "react";
-import { styled } from "@mui/material";
+import { Grid, styled, Tooltip } from "@mui/material";
 import { colorType, skillStrength } from "../../contracts/SkillColor";
-import { blue } from "@mui/material/colors";
+import { blue, purple } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
+import { OpenInNew } from "@mui/icons-material";
 
-const StyledChip = styled("span", {
+const StyledChip = styled("div", {
   shouldForwardProp: (prop) => prop !== "color",
 })<{ color?: colorType }>(({ theme, color }) => ({
   backgroundColor: blue[color as colorType],
-  padding: "2px 3px",
+  padding: "2px 6px 2px 2px",
   borderRadius: "8px",
   fontSize: "16px",
   color: "white",
   cursor: "pointer",
+  border: ".5px solid transparent",
+  "&:hover": {
+    border:
+      ".5px solid " +
+      blue[(parseInt(color ? color : "900") - 200).toString() as colorType],
+    backgroundColor:
+      blue[(parseInt(color ? color : "900") - 200).toString() as colorType],
+    boxShadow:
+      blue[(parseInt(color ? color : "900") - 200).toString() as colorType] +
+      " 0px 0px 4px",
+  },
 }));
 
 interface IChipProps {
@@ -37,13 +49,24 @@ export const Chip = (props: IChipProps) => {
 
   return (
     <div
-      onClick={() => navigate("/skill/" + encodeURIComponent(props.chipText))}
+      onClick={() =>
+        window.open(
+          "/skill/" + encodeURIComponent(props.chipText),
+          "_blank",
+          "noopener,noreferrer"
+        )
+      }
     >
       <StyledChip
         style={{ fontSize: props.fontSize }}
         color={skillToColorMap(props.color)}
       >
-        {props.chipText}
+        <Grid spacing={"4px"} container alignItems={"center"}>
+          <Grid item>{props.chipText}</Grid>
+          <Grid item style={{marginBottom: "-2px"}}>
+            <OpenInNew fontSize="inherit" />
+          </Grid>
+        </Grid>
       </StyledChip>
     </div>
   );

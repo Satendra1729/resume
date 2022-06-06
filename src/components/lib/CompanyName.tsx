@@ -1,4 +1,5 @@
-import { styled, Theme } from "@mui/material";
+import { OpenInNew } from "@mui/icons-material";
+import { Grid, styled, Theme } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 
@@ -7,7 +8,8 @@ interface CompanyNameProps {
 }
 
 const ComapnyNameWrapper = styled("div")(({ theme }: { theme: Theme }) => ({
-  color : theme.palette.primary.main,
+  color: theme.palette.primary.main,
+  cursor: "pointer",
   "&:hover": {
     color: theme.palette.primary.light,
   },
@@ -16,9 +18,12 @@ const ComapnyNameWrapper = styled("div")(({ theme }: { theme: Theme }) => ({
 export const CompanyName = (props: CompanyNameProps) => {
   return (
     <ComapnyNameWrapper onClick={() => alert(props.companyName)}>
-      <Typography style={{ cursor: "pointer" }} variant="h6">
-        {props.companyName}
-      </Typography>
+      <Grid container alignItems={"center"}>
+        <Typography  variant="h6">
+          {props.companyName}
+        </Typography>
+        <OpenInNew fontSize="inherit" style={{marginLeft: "5px"}}></OpenInNew>
+      </Grid>
     </ComapnyNameWrapper>
   );
 };
