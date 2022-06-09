@@ -2,7 +2,7 @@ import * as React from "react";
 import { Grid, styled, Theme } from "@mui/material";
 
 const Circle = styled("div")(({ theme }: { theme: Theme }) => ({  
-  color: theme.palette.secondary.light,
+  color: theme.palette.grey[700],
   fontSize: "25px",
   marginBlock: "-4px"
 }));
