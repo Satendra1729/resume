@@ -13,7 +13,7 @@ import { Paper, Theme } from "@mui/material";
 import { Chip } from "../lib/Chip";
 import { Introduction } from "../../db/Introduction";
 import { getExpirence } from "../../utils/getExpirence";
-import resume from '../../assets/pdf/resume.pdf'
+import resume from "../../assets/pdf/resume.pdf";
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -98,7 +98,12 @@ const SubTitle = styled((props: any) => {
           }}
         >
           <Download />{" "}
-          <a download="resume.pdf" style={{ color: grey[900] }} href={resume} target="_blank">
+          <a
+            download="resume.pdf"
+            style={{ color: grey[900] }}
+            href={resume}
+            target="_blank"
+          >
             Resume
           </a>
         </Grid>
@@ -132,7 +137,7 @@ export default function Intro() {
   return (
     <>
       <BasePaper>
-        <Grid spacing={5} container justifyContent="space-between">
+        <Grid paddingTop={"25px"} container justifyContent="space-between">
           <Grid
             item
             md={4}
@@ -157,11 +162,11 @@ export default function Intro() {
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
-                margin: "20px",
+                margin: { xs: "20px",sm : "0px" },
               }}
             >
               <Grid item>
-                <Grid container >
+                <Grid container>
                   <Grid item>
                     <Name />
                   </Grid>

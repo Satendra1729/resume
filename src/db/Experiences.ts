@@ -66,7 +66,7 @@ export const Experiences = [
         projectName: "Unified Electricity Bill Portal",
         skillSets: [
           { skill: "C#", color: "competent" },
-          { skill: "Dotnet Core", color: "competent" },
+          { skill: "Dotnet Framework", color: "competent" },
         ],
         duration: "Jan 18 - Apr 18",
       },

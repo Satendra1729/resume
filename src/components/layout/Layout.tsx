@@ -8,7 +8,7 @@ export const Layout = () => {
   return (
     <>
       <PrimarySearchAppBar></PrimarySearchAppBar>
-      <Box sx={{ mt: { sm: "48px", xs: "90px" } }}>
+      <Box sx={{ mt: { xs: "68px" }, mb: { xs: "40px" } }}>
         <Grid
           container
           style={{ display: "flex", width: "100%", justifyContent: "center" }}

@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export const HomePage = () => {
   return (
-    <Box maxWidth={"1000px"} style={{ padding: "20px" }}>
+    <Box maxWidth={"1000px"} style={{ padding: "0 20px" }}>
       <Grid item xs={12}>
         <Introduction></Introduction>
       </Grid>
