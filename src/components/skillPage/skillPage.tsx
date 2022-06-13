@@ -36,7 +36,7 @@ export const SkillPage = () => {
   const params = useParams<{ skill: string }>();
 
   return (
-    <Paper style={{ padding: "30px", maxWidth: "500px" }}>
+    <Paper style={{ padding: "30px", maxWidth: "900px",margin: "20px" }}>
       <Grid container direction={"column"}>
         <Grid item>
           <Grid container alignItems={"center"} spacing={4}>
