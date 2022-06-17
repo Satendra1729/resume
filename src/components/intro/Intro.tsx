@@ -193,7 +193,7 @@ export default function Intro() {
                 >
                   {Introduction.skillSets.map((skillO) => (
                     <Grid item style={{ color: "blue" }}>
-                      <Chip chipText={skillO.skill} color={skillO.color} />
+                      <Chip chipText={skillO.skill} color={skillO.color} animate={true} />
                     </Grid>
                   ))}
                 </Grid>

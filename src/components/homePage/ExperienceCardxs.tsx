@@ -15,7 +15,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
-  border: `2px solid ${theme.palette.grey[700]}`,
+  border: `1px solid ${theme.palette.grey[700]}`,
+  backgroundColor: theme.palette.grey[700],
   height: "20px",
   width: "0px",
 }));

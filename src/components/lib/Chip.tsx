@@ -2,35 +2,45 @@ import * as React from "react";
 import { Grid, styled, Tooltip } from "@mui/material";
 import { colorType, skillStrength } from "../../contracts/SkillColor";
 import { blue, purple } from "@mui/material/colors";
-import { useNavigate } from "react-router-dom";
 import { OpenInNew } from "@mui/icons-material";
 
-const StyledChip = styled("div", {
-  shouldForwardProp: (prop) => prop !== "color",
-})<{ color?: colorType }>(({ theme, color }) => ({
+const hoverStyle = (color?: colorType) => ({
+  border:
+    ".5px solid " +
+    blue[(parseInt(color ? color : "900") - 200).toString() as colorType],
+  backgroundColor:
+    blue[(parseInt(color ? color : "900") - 200).toString() as colorType],
+  boxShadow:
+    blue[(parseInt(color ? color : "900") - 200).toString() as colorType] +
+    " 0px 0px 10px",
+});
+
+const defalutStyle = (color?: colorType) => ({
   backgroundColor: blue[color as colorType],
-  padding: "2px 6px 2px 2px",
+  border: ".5px solid transparent",
+});
+
+const StyledChip = styled("div")<{
+  color?: colorType;
+  hoverStyleL?: any;
+  defalutStyleL?: any;
+}>(({ theme, color, hoverStyleL, defalutStyleL }) => ({
+  ...defalutStyleL(color),
+  padding: "3px 6px 2px 4px",
   borderRadius: "8px",
   fontSize: "16px",
   color: "white",
   cursor: "pointer",
-  border: ".5px solid transparent",
-  "&:hover": {
-    border:
-      ".5px solid " +
-      blue[(parseInt(color ? color : "900") - 200).toString() as colorType],
-    backgroundColor:
-      blue[(parseInt(color ? color : "900") - 200).toString() as colorType],
-    boxShadow:
-      blue[(parseInt(color ? color : "900") - 200).toString() as colorType] +
-      " 0px 0px 4px",
-  },
+  "&:hover": hoverStyleL(color),
+  transition: "all .3s",
 }));
 
 interface IChipProps {
   chipText: string;
   fontSize?: string;
   color?: skillStrength;
+  animate?: boolean;
+  animateSequence?: number;
 }
 
 const skillToColorMap = (skillColor: skillStrength | undefined) => {
@@ -44,26 +54,48 @@ const skillToColorMap = (skillColor: skillStrength | undefined) => {
   }
 };
 
-export const Chip = (props: IChipProps) => {
-  const navigate = useNavigate();
+const Chip = ({
+  chipText,
+  fontSize,
+  color,
+  animate = false,
+  animateSequence = 0,
+}: IChipProps) => {
+  const [a, setA] = React.useState(false);
+
+  React.useEffect(() => {
+    if (animate)
+      setTimeout(() => {
+        setA(true);
+        setTimeout(() => {
+          setA(false);
+          setTimeout(() => {
+            setA(true);
+            setTimeout(() => setA(false), 600);
+          }, 600);
+        }, 600);
+      }, 2000);
+  }, []);
 
   return (
     <div
       onClick={() =>
         window.open(
-          "/skill/" + encodeURIComponent(props.chipText),
+          "/skill/" + encodeURIComponent(chipText),
           "_blank",
           "noopener,noreferrer"
         )
       }
     >
       <StyledChip
-        style={{ fontSize: props.fontSize }}
-        color={skillToColorMap(props.color)}
+        hoverStyleL={hoverStyle}
+        defalutStyleL={a ? hoverStyle : defalutStyle}
+        style={{ fontSize: fontSize }}
+        color={skillToColorMap(color)}
       >
         <Grid spacing={"4px"} container alignItems={"center"}>
-          <Grid item>{props.chipText}</Grid>
-          <Grid item style={{marginBottom: "-2px"}}>
+          <Grid item>{chipText}</Grid>
+          <Grid item style={{ marginBottom: "-2px" }}>
             <OpenInNew fontSize="inherit" />
           </Grid>
         </Grid>
@@ -71,3 +103,5 @@ export const Chip = (props: IChipProps) => {
     </div>
   );
 };
+
+export { Chip };

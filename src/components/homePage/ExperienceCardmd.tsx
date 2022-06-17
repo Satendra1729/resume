@@ -12,26 +12,35 @@ const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: "20px 20px",
   color: theme.palette.text.secondary,
+  transition: "opacity 4s, transform 2s",
+  transformOrigin : "right 50% 0"
 }));
 
 const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
-  border: `2px solid ${theme.palette.grey[700]}`,
+  border: `1px solid ${theme.palette.grey[700]}`,
   height: "115%",
   borderRadius: "5px",
-  zIndex: -12
+  backgroundColor: theme.palette.grey[700],
+  zIndex: -12,
 }));
 
- 
-
 export const Eventmd = (props: Experience) => {
+  const [opacity, setOpacity] = React.useState(0.1);
+  const [transform,setTransform] = React.useState("RotateY(-90deg)");
+
+  React.useEffect(() => {
+    setOpacity(1);
+    setTransform("RotateY(0deg)")
+  }, []);
+
   return (
     <Grid container spacing={2} justifyContent="center">
       <Grid item xs={5} sx={{ display: { sm: "none", md: "block" } }}>
         {props.direction == "left" ? (
-          <Item>
+          <Item style={{ opacity: opacity,transform: transform }}>
             <Grid container direction={"column"}>
               <Grid item>
-                <CompanyName companyName={props.companyName}/>
+                <CompanyName companyName={props.companyName} />
               </Grid>
               <Grid
                 item
@@ -106,11 +115,12 @@ export const Eventmd = (props: Experience) => {
                   >
                     <Grid container spacing={1}>
                       {skillSets.map((skillO) => (
-                        <Grid item><Chip
-                        chipText={skillO.skill}
-                        fontSize="10px"
-                        color={skillO.color}
-                      />
+                        <Grid item>
+                          <Chip
+                            chipText={skillO.skill}
+                            fontSize="10px"
+                            color={skillO.color}
+                          />
                         </Grid>
                       ))}
                     </Grid>
@@ -140,7 +150,7 @@ export const Eventmd = (props: Experience) => {
           <Item>
             <Grid container direction={"column"}>
               <Grid item>
-                <CompanyName companyName={props.companyName}/>
+                <CompanyName companyName={props.companyName} />
               </Grid>
               <Grid
                 item
