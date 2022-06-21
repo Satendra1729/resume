@@ -3,7 +3,7 @@ import { Box, Grid } from "@mui/material";
 import PrimarySearchAppBar from "../appbar/appbar";
 import { HomePage } from "../homePage/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SkillPage } from "../skillPage/skillPage";
+import { SkillPage } from "../skillPage/SkillPage";
 export const Layout = () => {
   return (
     <>
@@ -16,7 +16,7 @@ export const Layout = () => {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/skill/:skill" element={<SkillPage />} />
+              <Route path="/skill/:skillid" element={<SkillPage />} />
             </Routes>
           </BrowserRouter>
         </Grid>

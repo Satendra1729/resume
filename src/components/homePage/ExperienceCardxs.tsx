@@ -5,7 +5,7 @@ import { LocationOn, Work } from "@mui/icons-material";
 import Divider from "@mui/material/Divider";
 import { Chip } from "../lib/Chip";
 import { CompanyName } from "../lib/CompanyName";
-import { Experience } from "../../contracts/Experience";
+import { IExperience } from "../../contracts/Experience";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -21,7 +21,7 @@ const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
   width: "0px",
 }));
 
-export const Eventxs = (props: Experience) => {
+export const Eventxs = (props: IExperience) => {
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12}>
@@ -117,6 +117,7 @@ export const Eventxs = (props: Experience) => {
                     {skillSets.map((skillO) => (
                       <Grid item>
                         <Chip
+                        skillId ={skillO.skillId}
                           chipText={skillO.skill}
                           fontSize="10px"
                           color={skillO.color}

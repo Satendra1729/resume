@@ -1,19 +1,16 @@
-import { skillStrength } from "./SkillColor";
+import { ISkill, TSkillStrength } from "./SkillTypes";
 
-export interface Skill {
-  skill: string;
-  color: skillStrength;
-}
 
-export interface Experience {
+export type leftright = "left" | "right"; 
+export interface IExperience {
   id: string;
   companyName: string;
   projects: {
     projectName: string;
-    skillSets: Skill[];
+    skillSets: ISkill[];
     duration: string;
   }[];
-  direction: "left" | "right";
+  direction: leftright;
   location: string;
   designation: string;
   startTime: string;

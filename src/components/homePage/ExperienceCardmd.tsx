@@ -5,7 +5,7 @@ import { LocationOn, Work } from "@mui/icons-material";
 import Divider from "@mui/material/Divider";
 import { Chip } from "../lib/Chip";
 import { CompanyName } from "../lib/CompanyName";
-import { Experience } from "../../contracts/Experience";
+import { IExperience } from "../../contracts/Experience";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -13,7 +13,7 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: "20px 20px",
   color: theme.palette.text.secondary,
   transition: "opacity 4s, transform 2s",
-  transformOrigin : "right 50% 0"
+  transformOrigin: "right 50% 0",
 }));
 
 const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
@@ -24,20 +24,20 @@ const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
   zIndex: -12,
 }));
 
-export const Eventmd = (props: Experience) => {
+export const Eventmd = (props: IExperience) => {
   const [opacity, setOpacity] = React.useState(0.1);
-  const [transform,setTransform] = React.useState("RotateY(-90deg)");
+  const [transform, setTransform] = React.useState("RotateY(-90deg)");
 
   React.useEffect(() => {
     setOpacity(1);
-    setTransform("RotateY(0deg)")
+    setTransform("RotateY(0deg)");
   }, []);
 
   return (
     <Grid container spacing={2} justifyContent="center">
       <Grid item xs={5} sx={{ display: { sm: "none", md: "block" } }}>
         {props.direction == "left" ? (
-          <Item style={{ opacity: opacity,transform: transform }}>
+          <Item style={{ opacity: opacity, transform: transform }}>
             <Grid container direction={"column"}>
               <Grid item>
                 <CompanyName companyName={props.companyName} />
@@ -117,6 +117,7 @@ export const Eventmd = (props: Experience) => {
                       {skillSets.map((skillO) => (
                         <Grid item>
                           <Chip
+                            skillId={skillO.skillId}
                             chipText={skillO.skill}
                             fontSize="10px"
                             color={skillO.color}
@@ -227,6 +228,7 @@ export const Eventmd = (props: Experience) => {
                       {skillSets.map((skillO) => (
                         <Grid item>
                           <Chip
+                            skillId={skillO.skillId}
                             chipText={skillO.skill}
                             fontSize="10px"
                             color={skillO.color}

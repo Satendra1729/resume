@@ -1,49 +1,54 @@
 import * as React from "react";
 import { Grid, styled, Tooltip } from "@mui/material";
-import { colorType, skillStrength } from "../../contracts/SkillColor";
+import { TColorType, TSkillStrength } from "../../contracts/SkillTypes";
 import { blue, purple } from "@mui/material/colors";
 import { OpenInNew } from "@mui/icons-material";
 
-const hoverStyle = (color?: colorType) => ({
+const hoverStyle = (color?: TColorType) => ({
   border:
     ".5px solid " +
-    blue[(parseInt(color ? color : "900") - 200).toString() as colorType],
+    blue[(parseInt(color ? color : "900") - 200).toString() as TColorType],
   backgroundColor:
-    blue[(parseInt(color ? color : "900") - 200).toString() as colorType],
+    blue[(parseInt(color ? color : "900") - 200).toString() as TColorType],
   boxShadow:
-    blue[(parseInt(color ? color : "900") - 200).toString() as colorType] +
+    blue[(parseInt(color ? color : "900") - 200).toString() as TColorType] +
     " 0px 0px 10px",
 });
 
-const defalutStyle = (color?: colorType) => ({
-  backgroundColor: blue[color as colorType],
+const defalutStyle = (color?: TColorType) => ({
+  backgroundColor: blue[color as TColorType],
   border: ".5px solid transparent",
 });
 
 const StyledChip = styled("div")<{
-  color?: colorType;
-  hoverStyleL?: any;
-  defalutStyleL?: any;
-}>(({ theme, color, hoverStyleL, defalutStyleL }) => ({
-  ...defalutStyleL(color),
+  color?: TColorType;
+  delay?: string;
+}>(({ theme, color, delay }) => ({
+  ...defalutStyle(color),
   padding: "3px 6px 2px 4px",
   borderRadius: "8px",
   fontSize: "16px",
   color: "white",
   cursor: "pointer",
-  "&:hover": hoverStyleL(color),
-  transition: "all .3s",
+  "&:hover": hoverStyle(color),
+  animation: "blink .5s 2 ease-in-out",
+  animationDirection: "alternate",
+  animationDelay: delay +"s",
+  "@keyframes blink": {
+    from: { ...defalutStyle(color) },
+    to: { ...hoverStyle(color) },
+  },
 }));
 
 interface IChipProps {
   chipText: string;
+  skillId : string; 
   fontSize?: string;
-  color?: skillStrength;
-  animate?: boolean;
-  animateSequence?: number;
+  color?: TSkillStrength;
+  delay?: string;
 }
 
-const skillToColorMap = (skillColor: skillStrength | undefined) => {
+const skillToColorMap = (skillColor: TSkillStrength | undefined) => {
   switch (skillColor) {
     case "competent":
       return "600";
@@ -54,44 +59,21 @@ const skillToColorMap = (skillColor: skillStrength | undefined) => {
   }
 };
 
-const Chip = ({
-  chipText,
-  fontSize,
-  color,
-  animate = false,
-  animateSequence = 0,
-}: IChipProps) => {
-  const [a, setA] = React.useState(false);
-
-  React.useEffect(() => {
-    if (animate)
-      setTimeout(() => {
-        setA(true);
-        setTimeout(() => {
-          setA(false);
-          setTimeout(() => {
-            setA(true);
-            setTimeout(() => setA(false), 600);
-          }, 600);
-        }, 600);
-      }, 2000);
-  }, []);
-
+const Chip = ({ chipText,skillId, fontSize, color, delay }: IChipProps) => {
   return (
     <div
       onClick={() =>
         window.open(
-          "/skill/" + encodeURIComponent(chipText),
+          "/skill/" + encodeURIComponent(skillId),
           "_blank",
           "noopener,noreferrer"
         )
       }
     >
       <StyledChip
-        hoverStyleL={hoverStyle}
-        defalutStyleL={a ? hoverStyle : defalutStyle}
         style={{ fontSize: fontSize }}
         color={skillToColorMap(color)}
+        delay={delay}
       >
         <Grid spacing={"4px"} container alignItems={"center"}>
           <Grid item>{chipText}</Grid>

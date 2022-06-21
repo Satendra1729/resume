@@ -162,7 +162,7 @@ export default function Intro() {
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
-                margin: { xs: "20px",sm : "0px" },
+                margin: { xs: "20px", sm: "0px" },
               }}
             >
               <Grid item>
@@ -191,9 +191,14 @@ export default function Intro() {
                   }}
                   spacing={1.2}
                 >
-                  {Introduction.skillSets.map((skillO) => (
+                  {Introduction.skillSets.map((skillO, idx) => (
                     <Grid item style={{ color: "blue" }}>
-                      <Chip chipText={skillO.skill} color={skillO.color} animate={true} />
+                      <Chip
+                        chipText={skillO.skill}
+                        skillId ={skillO.skillId}
+                        color={skillO.color}
+                        delay={`${idx}`}
+                      />
                     </Grid>
                   ))}
                 </Grid>

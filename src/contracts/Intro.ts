@@ -1,7 +1,6 @@
-import { Skill } from "./Experience";
+import { ISkill } from "./SkillTypes";
 
-
-export interface Intro {
+export interface IIntro {
     name : string;
     designation : string; 
     emailId : string;
@@ -10,5 +9,5 @@ export interface Intro {
     mobileNumber: string;
     resumeLink : string; 
     currentLocation : string;
-    skillSets : Skill[]
+    skillSets : ISkill[]
 }

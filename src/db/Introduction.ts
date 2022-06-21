@@ -1,6 +1,7 @@
-import { Intro } from "../contracts/Intro";
+import { IIntro } from "../contracts/Intro";
+import { getSkillSets } from "./Skills";
 
-export const Introduction: Intro = {
+export const Introduction: IIntro = {
   name: "Satendra Kushwaha",
   designation: "Principle Software Engineer",
   emailId: "satendra1729@gmail.com",
@@ -8,39 +9,6 @@ export const Introduction: Intro = {
   github: "https://github.com/Satendra1729",
   mobileNumber: "9632300925",
   resumeLink: "",
-  skillSets: [
-    {
-      skill: "C#",
-      color: "expert",
-    },
-    {
-      skill: "Azure/AWS",
-      color: "expert",
-    },
-    {
-      skill: "Python",
-      color: "expert",
-    },
-    {
-      skill: "JavaScript/TypeScript",
-      color: "expert",
-    },
-    {
-      skill: "React",
-      color: "proficient",
-    },
-    {
-      skill: "Dotnet Core",
-      color: "proficient",
-    },
-    {
-      skill: "Docker/K8s",
-      color: "proficient",
-    },
-    {
-      skill: "Datamining",
-      color: "expert",
-    },
-  ],
+  skillSets: getSkillSets(),
   currentLocation: "Bengaluru (India)",
 };
