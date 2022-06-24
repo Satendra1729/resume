@@ -3,7 +3,7 @@ import { Grid, Paper, styled, Theme, Typography } from "@mui/material";
 import { LocationOn, Work } from "@mui/icons-material";
 
 import Divider from "@mui/material/Divider";
-import { Chip } from "../lib/Chip";
+import { MiniChip } from "../lib/MiniChip";
 import { CompanyName } from "../lib/CompanyName";
 import { IExperience } from "../../contracts/Experience";
 
@@ -22,6 +22,7 @@ const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
 }));
 
 export const Eventxs = (props: IExperience) => {
+  console.log(props)
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12}>
@@ -116,11 +117,12 @@ export const Eventxs = (props: IExperience) => {
                   <Grid container spacing={1}>
                     {skillSets.map((skillO) => (
                       <Grid item>
-                        <Chip
-                        skillId ={skillO.skillId}
+                        <MiniChip
+                          skillId ={skillO.skillId}
                           chipText={skillO.skill}
-                          fontSize="10px"
+                          fontSize="14px"
                           color={skillO.color}
+                          logo={skillO.logo}
                         />
                       </Grid>
                     ))}

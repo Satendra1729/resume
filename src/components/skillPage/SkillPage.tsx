@@ -10,10 +10,10 @@ import {
   Typography,
 } from "@mui/material";
 import { purple } from "@mui/material/colors";
-import { Link, useParams } from "react-router-dom";
-import csharplogo from "../../assets/img/csharplogo.png";
+import { useParams } from "react-router-dom";
+import csharplogo from "../../assets/img/csharp-logo.png";
 import codefork from "../../assets/img/codefork.png";
-import { skillMap } from "../../db/Skills";
+import { skillMap, getSkillSets } from "../../db/Skills";
 import { TSkills } from "../../contracts/SkillTypes";
 import { ShortSkill } from "./ShortSkill";
 
@@ -41,14 +41,17 @@ export const SkillPage = () => {
   return (
     <Grid container direction={"column"} style={{ maxWidth: "900px" }}>
       <Grid item>
-        <Grid container justifyContent={"space-between"}>
-          {Array(10)
-            .fill(1)
-            .map((i) => (
-              <Grid item>
-                <ShortSkill></ShortSkill>
-              </Grid>
-            ))}
+        <Grid
+          container
+          flexGrow={1}
+          justifyContent={"space-between"}
+          spacing={2}
+        >
+          {getSkillSets().map((item) => (
+            <Grid item xs={2.3} sm={1}>
+              <ShortSkill {...item}></ShortSkill>
+            </Grid>
+          ))}
         </Grid>
       </Grid>
       <Paper style={{ padding: "30px", margin: "20px" }}>
@@ -99,7 +102,7 @@ export const SkillPage = () => {
 
       <Paper style={{ padding: "30px", margin: "20px" }}>
         <span>{"Project list"}</span>
-        </Paper>
+      </Paper>
     </Grid>
   );
 };

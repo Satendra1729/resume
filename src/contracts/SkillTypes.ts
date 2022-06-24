@@ -42,4 +42,5 @@ export interface ISkill {
   color: TSkillStrength;
   skillId: TSkills;
   skillDescription?: ISkillDescription[];
+  logo: string; 
 }

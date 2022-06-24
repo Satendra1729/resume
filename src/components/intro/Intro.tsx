@@ -153,7 +153,7 @@ export default function Intro() {
               SKK
             </Avatar>
           </Grid>
-          <Grid item md={7} xs={11}>
+          <Grid item md={7} xs={10}>
             <SideDivs />
             <Grid
               container
@@ -162,7 +162,7 @@ export default function Intro() {
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
-                margin: { xs: "20px", sm: "0px" },
+                padding: { xs: "40px 20px 20px 20px", md: "0px" },
               }}
             >
               <Grid item>
@@ -179,30 +179,34 @@ export default function Intro() {
               <Grid item>
                 <SubTitle />
               </Grid>
-              <Grid item>
-                <Grid
-                  container
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyItems: "center",
-                    fontSize: "16px",
-                    marginTop: "10px",
-                  }}
-                  spacing={1.2}
-                >
-                  {Introduction.skillSets.map((skillO, idx) => (
-                    <Grid item style={{ color: "blue" }}>
-                      <Chip
-                        chipText={skillO.skill}
-                        skillId ={skillO.skillId}
-                        color={skillO.color}
-                        delay={`${idx}`}
-                      />
-                    </Grid>
-                  ))}
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Grid
+              container
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyItems: "center",
+                fontSize: "16px",
+                marginTop: "10px",
+              }}
+              sx = {{
+                padding: { xs: "40px 20px 20px 20px", md: "0px" },
+              }}
+              spacing={1.2}
+            >
+              {Introduction.skillSets.map((skillO, idx) => (
+                <Grid item style={{ color: "blue" }}>
+                  <Chip
+                    chipText={skillO.skill}
+                    skillId={skillO.skillId}
+                    color={skillO.color}
+                    delay={`${idx}`}
+                    logo={skillO.logo}
+                  />
                 </Grid>
-              </Grid>
+              ))}
             </Grid>
           </Grid>
         </Grid>

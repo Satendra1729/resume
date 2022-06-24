@@ -5,10 +5,11 @@ import { blue, purple } from "@mui/material/colors";
 import { OpenInNew } from "@mui/icons-material";
 
 const hoverStyle = (color?: TColorType) => ({
-  backgroundColor: blue[100],
   border:
     ".5px solid " +
     blue[(parseInt(color ? color : "900") - 200).toString() as TColorType],
+  backgroundColor:
+    blue[100],
   boxShadow:
     blue[(parseInt(color ? color : "900") - 200).toString() as TColorType] +
     " 0px 0px 10px",
@@ -32,7 +33,7 @@ const StyledChip = styled("div")<{
   "&:hover": hoverStyle(color),
   animation: "blink .5s 2 ease-in-out",
   animationDirection: "alternate",
-  animationDelay: delay +"s",
+  animationDelay: delay + "s",
   "@keyframes blink": {
     from: { ...defalutStyle(color) },
     to: { ...hoverStyle(color) },
@@ -41,11 +42,11 @@ const StyledChip = styled("div")<{
 
 interface IChipProps {
   chipText: string;
-  skillId : string; 
+  skillId: string;
   fontSize?: string;
   color?: TSkillStrength;
   delay?: string;
-  logo : string; 
+  logo: string;
 }
 
 const skillToColorMap = (skillColor: TSkillStrength | undefined) => {
@@ -59,7 +60,14 @@ const skillToColorMap = (skillColor: TSkillStrength | undefined) => {
   }
 };
 
-const Chip = ({ chipText,skillId, fontSize, color, delay,logo }: IChipProps) => {
+const MiniChip = ({
+  chipText,
+  skillId,
+  fontSize,
+  color,
+  delay,
+  logo,
+}: IChipProps) => {
   return (
     <div
       onClick={() =>
@@ -76,7 +84,7 @@ const Chip = ({ chipText,skillId, fontSize, color, delay,logo }: IChipProps) => 
         delay={delay}
       >
         <Grid spacing={"4px"} container alignItems={"center"}>
-          <Avatar variant="square" src={logo} style={{padding: "4px",width: "30px",height: "30px"}}></Avatar>
+          <Avatar src={logo} style={{ width: "15px", height: "15px" }}></Avatar>
           <Grid item>{chipText}</Grid>
           <Grid item style={{ marginBottom: "-2px" }}>
             <OpenInNew fontSize="inherit" />
@@ -87,4 +95,4 @@ const Chip = ({ chipText,skillId, fontSize, color, delay,logo }: IChipProps) => 
   );
 };
 
-export { Chip };
+export { MiniChip };

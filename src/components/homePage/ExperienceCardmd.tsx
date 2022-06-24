@@ -3,7 +3,7 @@ import { Grid, Paper, styled, Theme, Typography } from "@mui/material";
 import { LocationOn, Work } from "@mui/icons-material";
 
 import Divider from "@mui/material/Divider";
-import { Chip } from "../lib/Chip";
+import { MiniChip } from "../lib/MiniChip";
 import { CompanyName } from "../lib/CompanyName";
 import { IExperience } from "../../contracts/Experience";
 
@@ -116,11 +116,12 @@ export const Eventmd = (props: IExperience) => {
                     <Grid container spacing={1}>
                       {skillSets.map((skillO) => (
                         <Grid item>
-                          <Chip
+                          <MiniChip
                             skillId={skillO.skillId}
                             chipText={skillO.skill}
-                            fontSize="10px"
+                            fontSize="14px"
                             color={skillO.color}
+                            logo={skillO.logo}
                           />
                         </Grid>
                       ))}
@@ -227,11 +228,12 @@ export const Eventmd = (props: IExperience) => {
                     <Grid container spacing={1}>
                       {skillSets.map((skillO) => (
                         <Grid item>
-                          <Chip
+                          <MiniChip
                             skillId={skillO.skillId}
                             chipText={skillO.skill}
-                            fontSize="10px"
+                            fontSize="14px"
                             color={skillO.color}
+                            logo={skillO.logo}
                           />
                         </Grid>
                       ))}
