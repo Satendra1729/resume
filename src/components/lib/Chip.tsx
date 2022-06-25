@@ -3,6 +3,7 @@ import { Avatar, Grid, styled, Tooltip } from "@mui/material";
 import { TColorType, TSkillStrength } from "../../contracts/SkillTypes";
 import { blue, purple } from "@mui/material/colors";
 import { OpenInNew } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const hoverStyle = (color?: TColorType) => ({
   backgroundColor: blue[100],
@@ -32,7 +33,7 @@ const StyledChip = styled("div")<{
   "&:hover": hoverStyle(color),
   animation: "blink .5s 2 ease-in-out",
   animationDirection: "alternate",
-  animationDelay: delay +"s",
+  animationDelay: delay + "s",
   "@keyframes blink": {
     from: { ...defalutStyle(color) },
     to: { ...hoverStyle(color) },
@@ -41,11 +42,11 @@ const StyledChip = styled("div")<{
 
 interface IChipProps {
   chipText: string;
-  skillId : string; 
+  skillId: string;
   fontSize?: string;
   color?: TSkillStrength;
   delay?: string;
-  logo : string; 
+  logo: string;
 }
 
 const skillToColorMap = (skillColor: TSkillStrength | undefined) => {
@@ -59,24 +60,29 @@ const skillToColorMap = (skillColor: TSkillStrength | undefined) => {
   }
 };
 
-const Chip = ({ chipText,skillId, fontSize, color, delay,logo }: IChipProps) => {
+const Chip = ({
+  chipText,
+  skillId,
+  fontSize,
+  color,
+  delay,
+  logo,
+}: IChipProps) => {
+  const navigate = useNavigate();
+
   return (
-    <div
-      onClick={() =>
-        window.open(
-          "/skill/" + encodeURIComponent(skillId),
-          "_blank",
-          "noopener,noreferrer"
-        )
-      }
-    >
+    <div onClick={() => navigate("/skill/" + encodeURIComponent(skillId))}>
       <StyledChip
         style={{ fontSize: fontSize }}
         color={skillToColorMap(color)}
         delay={delay}
       >
         <Grid spacing={"4px"} container alignItems={"center"}>
-          <Avatar variant="square" src={logo} style={{padding: "4px",width: "30px",height: "30px"}}></Avatar>
+          <Avatar
+            variant="square"
+            src={logo}
+            style={{ padding: "4px", width: "30px", height: "30px" }}
+          ></Avatar>
           <Grid item>{chipText}</Grid>
           <Grid item style={{ marginBottom: "-2px" }}>
             <OpenInNew fontSize="inherit" />

@@ -10,6 +10,7 @@ import {
 } from "@mui/material/styles";
 import blue from "@mui/material/colors/blue";
 import { useNavigate } from "react-router-dom";
+import { routerFactory } from "../../utils/routerFactory";
 
 export const theme = createTheme({
   //shadows: Array(25).fill("none") as Shadows,
@@ -46,8 +47,7 @@ const SkillAvatar = styled(Avatar)(() => ({
 }));
 
 export const ShortSkill = (props: ISkill) => {
-
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   return (
     <Grid container flexDirection={"column"} alignContent="center">
@@ -58,7 +58,7 @@ export const ShortSkill = (props: ISkill) => {
             src={props.logo}
             variant={"rounded"}
             style={{ cursor: "pointer" }}
-            onClick={() => navigate("/skill/"+props.skillId)}
+            onClick={() => navigate(routerFactory.skill(props.skillId))}
           >
             {props.skillId}
           </SkillAvatar>

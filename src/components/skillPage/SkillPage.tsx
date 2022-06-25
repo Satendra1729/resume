@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import { purple } from "@mui/material/colors";
 import { useParams } from "react-router-dom";
-import csharplogo from "../../assets/img/csharp-logo.png";
 import codefork from "../../assets/img/codefork.png";
 import { skillMap, getSkillSets } from "../../db/Skills";
 import { TSkills } from "../../contracts/SkillTypes";
@@ -38,6 +37,7 @@ export const SkillPage = () => {
   const params = useParams<{ skillid: string }>();
 
   const skillO = skillMap[params.skillid as TSkills];
+
   return (
     <Grid container direction={"column"} style={{ maxWidth: "900px" }}>
       <Grid item>
@@ -56,13 +56,15 @@ export const SkillPage = () => {
       </Grid>
       <Paper style={{ padding: "30px", margin: "20px" }}>
         <Grid item>
-          <Grid container alignItems={"center"} spacing={4}>
-            <Grid item>
-              <Icon style={{ width: 70, height: 70 }}>
-                <img src={csharplogo} height={70} width={70} />
-              </Icon>
+          <Grid container alignItems={"center"}>
+            <Grid item xs={3}>
+              <Grid container justifyContent={"center"}>
+                <Icon style={{ width: 70, height: 70 }}>
+                  <img src={skillO.logo} height={70} width={70} />
+                </Icon>
+              </Grid>
             </Grid>
-            <Grid item>
+            <Grid item xs={9}>
               <Typography variant="h6">{skillO.skill + " (7y 3m)"}</Typography>
               <BorderLinearProgress variant="determinate" value={85} />
             </Grid>

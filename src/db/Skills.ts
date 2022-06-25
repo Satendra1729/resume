@@ -75,18 +75,6 @@ export const skillMap: { [key in TSkills]: ISkill } = {
       },
     ],
   },
-  AZ: {
-    skill: "Azure",
-    color: "expert",
-    skillId: "AZ",
-    logo : azurelogo, 
-  },
-  AWS: {
-    skill: "AWS",
-    color: "expert",
-    skillId: "AWS",
-    logo : awslogo
-  },
   PY: {
     skill: "Python",
     color: "expert",
@@ -99,17 +87,35 @@ export const skillMap: { [key in TSkills]: ISkill } = {
     skillId: "JS",
     logo : javascriptlogo
   },
+  SQL: {
+    skill: "SQL",
+    color: "proficient",
+    skillId: "SQL",
+    logo : sqllogo,
+  },
+  DM: {
+    skill: "Datamining",
+    color: "expert",
+    skillId: "DM",
+    logo : datamininglogo
+  },
   RT: {
     skill: "React",
     color: "proficient",
     skillId: "RT",
     logo : reactlogo,
   },
-  SQL: {
-    skill: "SQL",
-    color: "proficient",
-    skillId: "SQL",
-    logo : sqllogo,
+  AWS: {
+    skill: "AWS",
+    color: "expert",
+    skillId: "AWS",
+    logo : awslogo
+  },
+  AZ: {
+    skill: "Azure",
+    color: "expert",
+    skillId: "AZ",
+    logo : azurelogo, 
   },
   CH: {
     skill: "Cherrypy",
@@ -140,12 +146,6 @@ export const skillMap: { [key in TSkills]: ISkill } = {
     color: "proficient",
     skillId: "K8S",
     logo : k8s
-  },
-  DM: {
-    skill: "Datamining",
-    color: "expert",
-    skillId: "DM",
-    logo : datamininglogo
   },
   LX: {
     skill: "Linux",

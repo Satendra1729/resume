@@ -1,28 +1,60 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import { Grid, styled, Theme } from "@mui/material";
-import { blue, grey } from "@mui/material/colors";
+import { useLocation, useNavigate } from "react-router-dom";
+import { routerFactory } from "../../utils/routerFactory";
+import { blue } from "@mui/material/colors";
+import { matchPath } from "react-router";
+import { useEffect, useState } from "react";
 
 export default function PrimarySearchAppBar() {
-  const pages = ["Home", "Expirence", "Skills", "About"];
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pages = [
+    {
+      text: "Home",
+      path: routerFactory.home(),
+      route: routerFactory.homeRoute,
+    },
+    {
+      text: "Skills",
+      path: routerFactory.skill(),
+      route: routerFactory.skillRoute,
+    },
+  ];
+  const [selectedRoute, setSelectedRoute] = useState<string>(pages[0].path);
 
-  const StyledGridItem = styled(Grid)<{ index: number }>(
-    ({ theme, index }: { theme: Theme; index: number }) => ({
+  useEffect(() => {
+    console.log("pathname", selectedRoute);
+    setSelectedRoute(location.pathname);
+  }, [location.pathname]);
+
+  const StyledGridItem = styled(Grid)<{ index: number; selected: boolean }>(
+    ({
+      theme,
+      index,
+      selected,
+    }: {
+      theme: Theme;
+      index: number;
+      selected: boolean;
+    }) => ({
       borderRight:
         index + 1 < pages.length
           ? "10px solid " + theme.palette.primary.dark
           : "none",
       borderLeft:
         index > 0 ? "10px solid " + theme.palette.primary.dark : "none",
-      width: "25%",
+      width: "100px",
       height: "40px",
       textAlign: "center",
       paddingTop: "10px",
-      backgroundColor: theme.palette.primary.main,
-      color: "#ddd",
+      color: "black",
+      backgroundColor: selected ? theme.palette.primary.main : blue[100],
+      cursor: "pointer",
+      "&:hover": {
+        color: "#ddd",
+        backgroundColor: theme.palette.primary.main,
+      },
     })
   );
 
@@ -40,12 +72,19 @@ export default function PrimarySearchAppBar() {
         style={{
           position: "fixed",
           top: 0,
-          zIndex: 100000
+          zIndex: 100000,
         }}
       >
         {pages.map((item, index) => (
-          <StyledGridItem index={index} item>
-            <span>{item}</span>
+          <StyledGridItem
+            index={index}
+            item
+            onClick={() => {
+              navigate(item.path);
+            }}
+            selected={Boolean(matchPath(item.route,selectedRoute))}
+          >
+            <span>{item.text}</span>
           </StyledGridItem>
         ))}
       </Grid>

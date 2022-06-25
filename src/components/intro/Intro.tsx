@@ -42,13 +42,17 @@ const SubTitle = styled((props: any) => {
   const { ...other } = props;
   return (
     <div {...other}>
-      <div>
-        <span>{Introduction.designation}</span>
-      </div>
+      <Grid
+        container
+        sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
+      >
+        <Grid item>{Introduction.designation}</Grid>
+      </Grid>
       <Grid
         container
         alignItems={"center"}
         style={{ fontSize: "13px", marginTop: "10px" }}
+        sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
       >
         <LocationCity style={{ fontSize: "20px" }} />{" "}
         <span style={{ marginLeft: "10px" }}>
@@ -59,6 +63,7 @@ const SubTitle = styled((props: any) => {
         container
         style={{ display: "flex", fontSize: "16px", marginTop: "20px" }}
         spacing={2}
+        sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
       >
         <Grid
           item
@@ -153,20 +158,30 @@ export default function Intro() {
               SKK
             </Avatar>
           </Grid>
-          <Grid item md={7} xs={10}>
+          <Grid item md={7} justifyContent="center" style={{ width: "100%" }}>
             <SideDivs />
             <Grid
               container
               direction={"column"}
+              xs={12}
               sx={{
-                width: "100%",
                 display: "flex",
-                justifyContent: "center",
-                padding: { xs: "40px 20px 20px 20px", md: "0px" },
+                justifyContent: { md: "flex-start", sx: "center" },
+                padding: { xs: "40px 0px 20px 20px", md: "0px" },
               }}
             >
-              <Grid item>
-                <Grid container>
+              <Grid
+                item
+                container
+                sx={{
+                  paddingTop: "20px",
+                  width: "100%",
+                }}
+              >
+                <Grid
+                  container
+                  justifyContent={{ xs: "center", md: "flex-start" }}
+                >
                   <Grid item>
                     <Name />
                   </Grid>
@@ -175,8 +190,11 @@ export default function Intro() {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item></Grid>
-              <Grid item>
+              <Grid
+                item
+                container
+                justifyContent={{ xs: "center", md: "flex-start" }}
+              >
                 <SubTitle />
               </Grid>
             </Grid>
@@ -190,8 +208,9 @@ export default function Intro() {
                 justifyItems: "center",
                 fontSize: "16px",
                 marginTop: "10px",
+                justifyContent: "space-evenly",
               }}
-              sx = {{
+              sx={{
                 padding: { xs: "40px 20px 20px 20px", md: "0px" },
               }}
               spacing={1.2}

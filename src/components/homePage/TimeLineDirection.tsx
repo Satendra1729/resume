@@ -21,7 +21,7 @@ export const TimeLineDirection = (props: TimeLineDirectionProps) => {
         alignItems={"center"}
         alignContent="center"
         style={{ display: "flex" }}
-        sx= {{ mb : {xs : "-5px",md : "20px"}}}
+        sx= {{ mb : {xs : "-5px",md : "25px"}}}
       >
         <Circle>{props.eventTime}</Circle>
       </Grid>

@@ -83,7 +83,7 @@ const MiniChip = ({
         color={skillToColorMap(color)}
         delay={delay}
       >
-        <Grid spacing={"4px"} container alignItems={"center"}>
+        <Grid spacing={"4px"} container alignItems={"center"} style={{paddingLeft : "5px"}}>
           <Avatar src={logo} style={{ width: "15px", height: "15px" }}></Avatar>
           <Grid item>{chipText}</Grid>
           <Grid item style={{ marginBottom: "-2px" }}>
