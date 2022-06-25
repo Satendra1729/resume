@@ -118,7 +118,7 @@ export const skillMap: { [key in TSkills]: ISkill } = {
     logo: cherrypylogo
   },
   GIT: {
-    skill: "Linux",
+    skill: "Git",
     color: "proficient",
     skillId: "GIT",
     logo : gitlogo
