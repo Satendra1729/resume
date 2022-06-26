@@ -1,0 +1,20 @@
+name : Satendra Resume CICD
+
+
+on: 
+  push: 
+    branches: 
+      - "master"
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+
+    strategy: 
+      matrix: 
+        node-version: [16.x]
+
+    steps: 
+      - uses: actions/checkout@v1
+      - uses: npm install 
+      - uses: npm run build 
