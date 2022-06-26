@@ -1,6 +1,4 @@
-import * as React from "react";
-
-import { Grid, Paper, styled, Theme } from "@mui/material";
+import { Grid, } from "@mui/material";
 import Introduction from "../intro/Intro";
 import Box from "@mui/system/Box";
 import { Eventmd } from "./ExperienceCardmd";

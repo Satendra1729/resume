@@ -1,15 +1,13 @@
-import * as React from "react";
-import { Avatar, Grid, styled, Tooltip } from "@mui/material";
+import { Avatar, Grid, styled } from "@mui/material";
 import { TColorType, TSkillStrength } from "../../contracts/SkillTypes";
-import { blue, purple } from "@mui/material/colors";
+import { blue } from "@mui/material/colors";
 import { OpenInNew } from "@mui/icons-material";
 
 const hoverStyle = (color?: TColorType) => ({
   border:
     ".5px solid " +
     blue[(parseInt(color ? color : "900") - 200).toString() as TColorType],
-  backgroundColor:
-    blue[100],
+  backgroundColor: blue[100],
   boxShadow:
     blue[(parseInt(color ? color : "900") - 200).toString() as TColorType] +
     " 0px 0px 10px",
@@ -83,7 +81,12 @@ const MiniChip = ({
         color={skillToColorMap(color)}
         delay={delay}
       >
-        <Grid spacing={"4px"} container alignItems={"center"} style={{paddingLeft : "5px"}}>
+        <Grid
+          spacing={"4px"}
+          container
+          alignItems={"center"}
+          style={{ paddingLeft: "5px" }}
+        >
           <Avatar src={logo} style={{ width: "15px", height: "15px" }}></Avatar>
           <Grid item>{chipText}</Grid>
           <Grid item style={{ marginBottom: "-2px" }}>

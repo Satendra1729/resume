@@ -1,7 +1,6 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
-import { IconButtonProps } from "@mui/material/IconButton";
 import { grey } from "@mui/material/colors";
 import saty from "../../assets/img/saty.jpg";
 import Email from "@mui/icons-material/Email";

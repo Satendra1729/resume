@@ -60,7 +60,12 @@ export const SkillPage = () => {
             <Grid item xs={3}>
               <Grid container justifyContent={"center"}>
                 <Icon style={{ width: 70, height: 70 }}>
-                  <img alt={skillO.skillId} src={skillO.logo} height={70} width={70} />
+                  <img
+                    alt={skillO.skillId}
+                    src={skillO.logo}
+                    height={70}
+                    width={70}
+                  />
                 </Icon>
               </Grid>
             </Grid>
@@ -80,6 +85,7 @@ export const SkillPage = () => {
                 style={{ textDecoration: "none" }}
                 href={skillDesc.repoLink}
                 target="_blank"
+                rel="noreferrer"
               >
                 <Grid container>
                   <Grid item>
@@ -88,7 +94,12 @@ export const SkillPage = () => {
                   <Grid item>
                     {skillDesc.repoLink && (
                       <Icon style={{ width: 20, height: 25 }}>
-                        <img src={codefork} height={20} width={20} />
+                        <img
+                          alt={"code-fork"}
+                          src={codefork}
+                          height={20}
+                          width={20}
+                        />
                       </Icon>
                     )}
                   </Grid>
