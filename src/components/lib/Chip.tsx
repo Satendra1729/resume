@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Avatar, Grid, styled, Tooltip } from "@mui/material";
+import { Avatar, Grid, styled } from "@mui/material";
 import { TColorType, TSkillStrength } from "../../contracts/SkillTypes";
-import { blue, purple } from "@mui/material/colors";
+import { blue } from "@mui/material/colors";
 import { OpenInNew } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 

@@ -36,7 +36,7 @@ export const Eventmd = (props: IExperience) => {
   return (
     <Grid container spacing={2} justifyContent="center">
       <Grid item xs={5} sx={{ display: { sm: "none", md: "block" } }}>
-        {props.direction == "left" ? (
+        {props.direction === "left" ? (
           <Item style={{ opacity: opacity, transform: transform }}>
             <Grid container direction={"column"}>
               <Grid item>
@@ -148,7 +148,7 @@ export const Eventmd = (props: IExperience) => {
         <VerticalDivider></VerticalDivider>
       </Grid>
       <Grid item sm={5} xs={10}>
-        {props.direction == "right" ? (
+        {props.direction === "right" ? (
           <Item>
             <Grid container direction={"column"}>
               <Grid item>

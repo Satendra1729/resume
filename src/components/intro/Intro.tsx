@@ -14,9 +14,6 @@ import { Chip } from "../lib/Chip";
 import { Introduction } from "../../db/Introduction";
 import { getExpirence } from "../../utils/getExpirence";
 import resume from "../../assets/pdf/resume.pdf";
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
 
 const Name = styled((props: any) => {
   const { ...other } = props;
@@ -108,6 +105,7 @@ const SubTitle = styled((props: any) => {
             style={{ color: grey[900] }}
             href={resume}
             target="_blank"
+            rel="noreferrer"
           >
             Resume
           </a>

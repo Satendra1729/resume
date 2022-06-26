@@ -60,7 +60,7 @@ export const SkillPage = () => {
             <Grid item xs={3}>
               <Grid container justifyContent={"center"}>
                 <Icon style={{ width: 70, height: 70 }}>
-                  <img src={skillO.logo} height={70} width={70} />
+                  <img alt={skillO.skillId} src={skillO.logo} height={70} width={70} />
                 </Icon>
               </Grid>
             </Grid>

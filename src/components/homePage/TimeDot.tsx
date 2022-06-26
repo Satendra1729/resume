@@ -1,5 +1,4 @@
-import * as React from "react";
-import { Grid, styled, Theme } from "@mui/material";
+import { styled, Theme } from "@mui/material";
 
 const Circle = styled("div")(({ theme }: { theme: Theme }) => ({
   backgroundColor: theme.palette.grey[700],

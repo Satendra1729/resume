@@ -26,7 +26,7 @@ export default function PrimarySearchAppBar() {
   useEffect(() => {
     console.log("pathname", selectedRoute);
     setSelectedRoute(location.pathname);
-  }, [location.pathname]);
+  }, [location.pathname,selectedRoute]);
 
   const StyledGridItem = styled(Grid)<{ index: number; selected: boolean }>(
     ({

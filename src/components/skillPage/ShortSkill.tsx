@@ -1,4 +1,4 @@
-import { Box, Grid, styled } from "@mui/material";
+import { Grid, styled } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 
 import { ISkill } from "../../contracts/SkillTypes";
@@ -6,7 +6,6 @@ import { ISkill } from "../../contracts/SkillTypes";
 import {
   createTheme,
   ThemeProvider,
-  experimental_sx as sx,
 } from "@mui/material/styles";
 import blue from "@mui/material/colors/blue";
 import { useNavigate } from "react-router-dom";
