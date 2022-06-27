@@ -2,6 +2,7 @@ import { Avatar, Grid, styled } from "@mui/material";
 import { TColorType, TSkillStrength } from "../../contracts/SkillTypes";
 import { blue } from "@mui/material/colors";
 import { OpenInNew } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const hoverStyle = (color?: TColorType) => ({
   border:
@@ -66,16 +67,9 @@ const MiniChip = ({
   delay,
   logo,
 }: IChipProps) => {
-  return (
-    <div
-      onClick={() =>
-        window.open(
-          "/skill/" + encodeURIComponent(skillId),
-          "_blank",
-          "noopener,noreferrer"
-        )
-      }
-    >
+  const navigate = useNavigate();
+  return (    
+    <div onClick={() => navigate("/skill/" + encodeURIComponent(skillId))}>
       <StyledChip
         style={{ fontSize: fontSize }}
         color={skillToColorMap(color)}
