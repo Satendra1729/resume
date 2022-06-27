@@ -15,6 +15,8 @@ import codefork from "../../assets/img/codefork.png";
 import { skillMap, getSkillSets } from "../../db/Skills";
 import { TSkills } from "../../contracts/SkillTypes";
 import { ShortSkill } from "./ShortSkill";
+import { useEffect } from "react";
+import { scrollTop } from "../../utils/scrollTop";
 
 const StyledDivider = styled(Divider)(({ theme }: { theme: Theme }) => ({
   padding: "10px 0px",
@@ -38,6 +40,10 @@ export const SkillPage = () => {
 
   const skillO = skillMap[params.skillid as TSkills];
 
+  useEffect(() => {
+    scrollTop();
+  });
+
   return (
     <Grid container direction={"column"} style={{ maxWidth: "900px" }}>
       <Grid item>
@@ -46,6 +52,7 @@ export const SkillPage = () => {
           flexGrow={1}
           justifyContent={"space-between"}
           spacing={2}
+          sx={{ padding: "0 15px 0 15px" }}
         >
           {getSkillSets().map((item) => (
             <Grid item xs={2.3} sm={1}>
@@ -87,13 +94,23 @@ export const SkillPage = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Grid container>
+                <Grid
+                  container
+                  style={{ margin: "20px 0 20px 0" }}
+                  alignItems="center"
+                >
                   <Grid item>
                     <Typography variant="h6">{skillDesc.group}</Typography>
                   </Grid>
                   <Grid item>
                     {skillDesc.repoLink && (
-                      <Icon style={{ width: 20, height: 25 }}>
+                      <Icon
+                        style={{
+                          width: 20,
+                          height: 25,
+                          margin: "0px 0 0 10px",
+                        }}
+                      >
                         <img
                           alt={"code-fork"}
                           src={codefork}

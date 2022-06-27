@@ -9,7 +9,7 @@ export const Layout = () => {
   return (
     <BrowserRouter>
       <PrimarySearchAppBar></PrimarySearchAppBar>
-      <Box sx={{ mt: "40px", overflowY: "scroll",height: "calc( 100vh - 40px)" }}>
+      <Box id="main" sx={{ mt: "40px", overflowY: "scroll",height: "calc( 100vh - 40px)" }}>
         <Grid
           container
           style={{ display: "flex", width: "100%", justifyContent: "center",marginTop: "45px" }}
