@@ -111,6 +111,7 @@ export const Eventmd = (props: IExperience) => {
                       display: "flex",
                       justifyItems: "center",
                       alignItems: "center",
+                      marginTop : "8px"
                     }}
                   >
                     <Grid container spacing={1}>
@@ -127,7 +128,7 @@ export const Eventmd = (props: IExperience) => {
                       ))}
                     </Grid>
                   </Grid>
-                  <Divider style={{ marginTop: "10px" }}></Divider>
+                  <Divider style={{ marginTop: "14px" }}></Divider>
                 </>
               ))}
             </Grid>
@@ -223,6 +224,7 @@ export const Eventmd = (props: IExperience) => {
                       display: "flex",
                       justifyItems: "center",
                       alignItems: "center",
+                      marginTop : "8px"
                     }}
                   >
                     <Grid container spacing={1}>
@@ -239,7 +241,7 @@ export const Eventmd = (props: IExperience) => {
                       ))}
                     </Grid>
                   </Grid>
-                  <Divider style={{ marginTop: "10px" }}></Divider>
+                  <Divider style={{ marginTop: "14px" }}></Divider>
                 </>
               ))}
             </Grid>

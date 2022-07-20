@@ -112,6 +112,7 @@ export const Eventxs = (props: IExperience) => {
                     display: "flex",
                     justifyItems: "center",
                     alignItems: "center",
+                    marginTop: "10px"
                   }}
                 >
                   <Grid container spacing={1}>

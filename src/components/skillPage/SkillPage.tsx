@@ -56,7 +56,7 @@ export const SkillPage = () => {
         >
           {getSkillSets().map((item) => (
             <Grid item xs={2.3} sm={1}>
-              <ShortSkill {...item}></ShortSkill>
+              <ShortSkill {...item} isSelected={item.skillId=== params.skillid}></ShortSkill>
             </Grid>
           ))}
         </Grid>
