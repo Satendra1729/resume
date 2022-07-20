@@ -5,6 +5,7 @@ export const Experiences = [
   {
     id: "FAI",
     companyName: "First American Pvt Ltd",
+    companyWebsite : "http://www.firstam.co.in/",
     projects: [
       {
         projectName: "LoansPQ",
@@ -41,6 +42,7 @@ export const Experiences = [
   {
     id: "PAOPC",
     companyName: "Proziod Analytics Pvt Ltd (OPC)",
+    companyWebsite : "https://www.proziod.com/",
     projects: [
       {
         projectName: "Unified Electricity Bill Portal",
@@ -62,6 +64,7 @@ export const Experiences = [
   {
     id: "CBLD",
     companyName: "CBL Data Science Pvt Ltd",
+    companyWebsite : "https://www.instafinancials.com/",
     projects: [
       {
         projectName: "Company Finder",
@@ -103,6 +106,7 @@ export const Experiences = [
   {
     id: "GT",
     companyName: "Gestalt Technologies Pvt Ltd",
+    companyWebsite : "http://gestalttechindia.in/",
     projects: [
       {
         projectName: "Oncology Patient Managment",
@@ -124,6 +128,7 @@ export const Experiences = [
   {
     id: "MNINT",
     companyName: "Motilal Nehru National Institute of Technology",
+    companyWebsite : "http://www.mnnit.ac.in/",
     projects: [
       {
         projectName: "Eyes Controlled Wheel Chair",
@@ -143,3 +148,15 @@ export const Experiences = [
     eventSrNumber: 1,
   },
 ] as IExperience[];
+
+
+export const getProjectList = (skillId  : string ) => {
+  const projectList = []; 
+  for(const o of Experiences){
+    for(const project of o.projects)
+      for(const skill of project.skillSets)
+        if(skill.skillId === skillId)
+          projectList.push(project.projectName)
+  }
+  return projectList; 
+}

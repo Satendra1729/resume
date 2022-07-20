@@ -22,7 +22,7 @@ const VerticalDivider = styled("div")(({ theme }: { theme: Theme }) => ({
 }));
 
 export const Eventxs = (props: IExperience) => {
-  console.log(props)
+  console.log(props);
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12}>
@@ -41,7 +41,10 @@ export const Eventxs = (props: IExperience) => {
         <Item>
           <Grid container direction={"column"}>
             <Grid item>
-              <CompanyName companyName={props.companyName} />
+              <CompanyName
+                companyName={props.companyName}
+                companyWebsite={props.companyWebsite}
+              />
             </Grid>
             <Grid
               item
@@ -112,14 +115,14 @@ export const Eventxs = (props: IExperience) => {
                     display: "flex",
                     justifyItems: "center",
                     alignItems: "center",
-                    marginTop: "10px"
+                    marginTop: "10px",
                   }}
                 >
                   <Grid container spacing={1}>
                     {skillSets.map((skillO) => (
                       <Grid item>
                         <MiniChip
-                          skillId ={skillO.skillId}
+                          skillId={skillO.skillId}
                           chipText={skillO.skill}
                           fontSize="14px"
                           color={skillO.color}

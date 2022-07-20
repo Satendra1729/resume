@@ -5,6 +5,7 @@ export type leftright = "left" | "right";
 export interface IExperience {
   id: string;
   companyName: string;
+  companyWebsite : string; 
   projects: {
     projectName: string;
     skillSets: ISkill[];

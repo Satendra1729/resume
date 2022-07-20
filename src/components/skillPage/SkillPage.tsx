@@ -4,6 +4,8 @@ import {
   Icon,
   LinearProgress,
   linearProgressClasses,
+  List,
+  ListItem,
   Paper,
   styled,
   Theme,
@@ -17,6 +19,7 @@ import { TSkills } from "../../contracts/SkillTypes";
 import { ShortSkill } from "./ShortSkill";
 import { useEffect } from "react";
 import { scrollTop } from "../../utils/scrollTop";
+import { getProjectList } from "../../db/Experiences";
 
 const StyledDivider = styled(Divider)(({ theme }: { theme: Theme }) => ({
   padding: "10px 0px",
@@ -56,7 +59,10 @@ export const SkillPage = () => {
         >
           {getSkillSets().map((item) => (
             <Grid item xs={2.3} sm={1}>
-              <ShortSkill {...item} isSelected={item.skillId=== params.skillid}></ShortSkill>
+              <ShortSkill
+                {...item}
+                isSelected={item.skillId === params.skillid}
+              ></ShortSkill>
             </Grid>
           ))}
         </Grid>
@@ -131,7 +137,14 @@ export const SkillPage = () => {
       </Paper>
 
       <Paper style={{ padding: "30px", margin: "20px" }}>
-        <span>{"Project list"}</span>
+        <List>
+          <Typography variant="h4"> Project List </Typography>
+          {getProjectList(params.skillid || "").map((projectName) => (
+            <ListItem style={{ marginTop: "10px" }} disablePadding>
+              {projectName}
+            </ListItem>
+          ))}
+        </List>
       </Paper>
     </Grid>
   );

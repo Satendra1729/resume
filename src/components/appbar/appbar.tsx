@@ -25,7 +25,11 @@ export default function PrimarySearchAppBar() {
 
   useEffect(() => {
     console.log("pathname", selectedRoute);
-    setSelectedRoute(location.pathname);
+    setSelectedRoute(
+      ["", "/"].includes(location.pathname)
+        ? routerFactory.home()
+        : location.pathname
+    );
   }, [location.pathname]);
 
   const StyledGridItem = styled(Grid)<{ index: number; selected: boolean }>(
@@ -73,7 +77,7 @@ export default function PrimarySearchAppBar() {
           position: "fixed",
           top: 0,
           zIndex: 100000,
-          backgroundColor: blue[100]
+          backgroundColor: blue[100],
         }}
       >
         {pages.map((item, index) => (
@@ -83,7 +87,7 @@ export default function PrimarySearchAppBar() {
             onClick={() => {
               navigate(item.path);
             }}
-            selected={Boolean(matchPath(item.route,selectedRoute))}
+            selected={Boolean(matchPath(item.route, selectedRoute))}
           >
             <span>{item.text}</span>
           </StyledGridItem>

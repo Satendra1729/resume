@@ -5,6 +5,7 @@ import * as React from "react";
 
 interface CompanyNameProps {
   companyName: string;
+  companyWebsite : string; 
 }
 
 const ComapnyNameWrapper = styled("div")(({ theme }: { theme: Theme }) => ({
@@ -17,7 +18,7 @@ const ComapnyNameWrapper = styled("div")(({ theme }: { theme: Theme }) => ({
 
 export const CompanyName = (props: CompanyNameProps) => {
   return (
-    <ComapnyNameWrapper onClick={() => alert(props.companyName)}>
+    <ComapnyNameWrapper onClick={() => window.open(props.companyWebsite,"_blank")}>
       <Grid container alignItems={"center"}>
         <Typography  variant="h6">
           {props.companyName}

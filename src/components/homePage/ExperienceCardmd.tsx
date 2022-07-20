@@ -40,7 +40,10 @@ export const Eventmd = (props: IExperience) => {
           <Item style={{ opacity: opacity, transform: transform }}>
             <Grid container direction={"column"}>
               <Grid item>
-                <CompanyName companyName={props.companyName} />
+                <CompanyName
+                  companyName={props.companyName}
+                  companyWebsite={props.companyWebsite}
+                />
               </Grid>
               <Grid
                 item
@@ -111,7 +114,7 @@ export const Eventmd = (props: IExperience) => {
                       display: "flex",
                       justifyItems: "center",
                       alignItems: "center",
-                      marginTop : "8px"
+                      marginTop: "8px",
                     }}
                   >
                     <Grid container spacing={1}>
@@ -153,7 +156,10 @@ export const Eventmd = (props: IExperience) => {
           <Item>
             <Grid container direction={"column"}>
               <Grid item>
-                <CompanyName companyName={props.companyName} />
+                <CompanyName
+                  companyName={props.companyName}
+                  companyWebsite={props.companyWebsite}
+                />
               </Grid>
               <Grid
                 item
@@ -224,7 +230,7 @@ export const Eventmd = (props: IExperience) => {
                       display: "flex",
                       justifyItems: "center",
                       alignItems: "center",
-                      marginTop : "8px"
+                      marginTop: "8px",
                     }}
                   >
                     <Grid container spacing={1}>
